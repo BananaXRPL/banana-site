@@ -3,105 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="$BANANA - Peel the ledger. Find the truth.." />
-  <meta name="keywords" content="$BANANA, XRP Ledger, memetoken, NFT, crypto art, blockchain" />
-  <meta name="author" content="$BANANA Team" />
-  <meta property="og:title" content="$BANANA Website" />
-  <meta property="og:description" content="Peel the ledger. Find the truth." />
+  <meta name="description" content="$BANANA - Peel the Ledger. Find the Truth. A memecoin on XRPL." />
+  <meta name="keywords" content="$BANANA, XRP Ledger, memecoin, NFT, crypto, blockchain" />
+  <meta name="author" content="$BANANA Community" />
+  <meta property="og:title" content="$BANANA - Peel the Ledger" />
+  <meta property="og:description" content="Join the $BANANA revolution on XRPL. Peel the Ledger. Find the Truth." />
   <meta property="og:type" content="website" />
-  <title>$BANANA</title>
-  <!-- CDNs for React -->
+  <meta property="og:image" content="assets/banana-logo.png" />
+  <title>$BANANA - Peel the Ledger</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Press Start 2P -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <!-- React CDNs -->
   <script src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Press Start 2P', monospace; background-color: #1A1A1A; color: #E8B923; line-height: 1.6; overflow-x: hidden; text-transform: uppercase; }
-    a { color: #E8B923; text-decoration: none; }
-    a:hover { color: #FFC107; }
-    /* Header */
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background-color: #1A1A1A;
-      border-bottom: 1px solid #E8B923;
-      z-index: 1000;
-      padding: 1rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .logo { font-size: 1.5rem; font-weight: bold; text-shadow: 0 0 4px #FFC107; }
-    nav { display: flex; gap: 1.5rem; }
-    .nav-links { display: flex; gap: 1.5rem; }
-    .nav-links a { font-size: 0.875rem; text-shadow: 0 0 4px #FFC107; }
-    .nav-links a:hover { animation: glitch 0.3s ease infinite alternate; }
-    .hamburger { display: none; font-size: 1.5rem; cursor: pointer; }
-    /* Main Content */
-    main { padding-top: 80px; }
-    section { padding: 2rem 1rem; }
-    h1, h2 { text-align: center; margin-bottom: 1.5rem; text-shadow: 0 0 4px #FFC107; }
-    h1 { font-size: 2.25rem; }
-    h2 { font-size: 2rem; }
-    /* Hero Section */
-    #hero {
-      height: 80vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      position: relative;
-      background-color: #1A1A1A;
-    }
-    #hero h1 { font-size: 4rem; text-shadow: 0 0 8px rgba(232, 185, 35, 0.5); animation: slideInLeft 0.5s ease-out; }
-    #hero p { font-size: 1.5rem; margin-bottom: 1.5rem; text-shadow: 0 0 4px #FFC107; }
-    /* Mythos Section */
-    #mythos { max-width: 48rem; margin: 0 auto; position: relative; background-color: rgba(232, 185, 35, 0.1); padding: 2rem; border-radius: 0.5rem; }
-    #mythos h2 { animation: slideInLeft 0.5s ease-out; }
-    #mythos ul { list-style: none; text-align: center; }
-    #mythos li { font-size: 1rem; line-height: 2; color: rgba(232, 185, 35, 0.9); text-shadow: 0 0 4px #FFC107; margin-bottom: 1rem; }
-    /* Token Info Section */
-    #token-info { max-width: 48rem; margin: 0 auto; position: relative; padding: 2rem; }
-    #token-info h2 { animation: slideInLeft 0.5s ease-out; }
-    #token-info ul { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; list-style: none; text-align: center; }
-    #token-info li { font-size: 1rem; color: rgba(232, 185, 35, 0.9); text-shadow: 0 0 4px #FFC107; }
-    /* How to Peel Section */
-    #how-to-peel { max-width: 48rem; margin: 0 auto; position: relative; padding: 2rem; }
-    #how-to-peel h2 { animation: slideInLeft 0.5s ease-out; }
-    #how-to-peel ul { list-style: none; text-align: center; }
-    #how-to-peel li { font-size: 1rem; line-height: 2; color: rgba(232, 185, 35, 0.9); text-shadow: 0 0 4px #FFC107; margin-bottom: 1rem; }
-    /* Quick Links (Bottom) */
-    .quick-links-bottom { display: flex; justify-content: center; gap: 2rem; padding: 2rem 1rem; }
-    .quick-links-bottom a {
-      font-size: 1rem;
-      text-shadow: 0 0 4px #FFC107;
-      padding: 0.5rem 1rem;
-      border: 1px solid #E8B923;
-      border-radius: 0.25rem;
-    }
-    .quick-links-bottom a:hover { animation: glitch 0.3s ease infinite alternate; background: #E8B923; color: #1A1A1A; }
-    /* Fragments */
-    .peel-fragment {
-      width: 1px;
-      height: 1px;
-      transform: scale(2);
-      box-shadow:
-        2px 2px #E8B923, 3px 2px #E8B923, 4px 2px #E8B923,
-        2px 3px #E8B923, 3px 3px #8B5A2B, 4px 3px #8B5A2B,
-        2px 4px #FFC107, 3px 4px #FFC107, 4px 4px #E8B923;
-      filter: drop-shadow(0 0 2px #FFC107);
-    }
-    /* Animations */
-    @keyframes fadeIn {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
-    }
-    @keyframes slideInLeft {
-      0% { opacity: 0; transform: translateX(-20px); }
-      100% { opacity: 1; transform: translateX(0); }
-    }
+    body { font-family: 'Press Start 2P', monospace; background-color: #1A1A1A; color: #E8B923; }
+    /* Custom Animations */
     @keyframes glitch {
       0% { transform: translate(0); }
       20% { transform: translate(-2px, 2px); }
@@ -123,229 +42,364 @@
     .animate-glitch { animation: glitch 0.3s ease infinite alternate; }
     .animate-drift { animation: drift 3.5s ease-in-out infinite; }
     .animate-ledgerPulse { animation: ledgerPulse 1s ease-out; }
-    .fade-in-delay-0-2 { animation-delay: 0.2s; }
-    .fade-in-delay-0-1 { animation-delay: 0.1s; }
-    /* Responsive Design */
-    @media (max-width: 640px) {
-      header { padding: 0.5rem; }
-      .logo { font-size: 1rem; }
-      .nav-links { display: none; flex-direction: column; position: absolute; top: 60px; left: 0; right: 0; background-color: #1A1A1A; padding: 1rem; border-bottom: 1px solid #E8B923; }
-      .nav-links.active { display: flex; }
-      .hamburger { display: block; }
-      #hero { height: 70vh; }
-      #hero h1 { font-size: 2rem; }
-      #hero p { font-size: 1rem; }
-      #mythos h2, #token-info h2, #how-to-peel h2 { font-size: 1.5rem; }
-      #mythos li, #token-info li, #how-to-peel li { font-size: 0.75rem; }
-      .quick-links-bottom { flex-direction: column; gap: 1rem; }
-      .quick-links-bottom a { font-size: 0.875rem; padding: 0.5rem; }
+    /* Peel Fragment */
+    .peel-fragment {
+      width: 1px;
+      height: 1px;
+      transform: scale(2);
+      box-shadow:
+        2px 2px #E8B923, 3px 2px #E8B923, 4px 2px #E8B923,
+        2px 3px #E8B923, 3px 3px #8B5A2B, 4px 3px #8B5A2B,
+        2px 4px #FFC107, 3px 4px #FFC107, 4px 4px #E8B923;
+      filter: drop-shadow(0 0 2px #FFC107);
     }
-    @media (min-width: 641px) and (max-width: 1024px) {
-      #hero h1 { font-size: 3rem; }
-      #hero p { font-size: 1.25rem; }
-      #mythos li, #token-info li, #how-to-peel li { font-size: 0.875rem; }
+    /* Pixel Banana for Parallax Effect */
+    .pixel-banana {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      opacity: 0.3;
+      top: 20%;
+      right: 10%;
+      z-index: 0;
+      transform: scale(2);
+      box-shadow:
+        5px 5px #E8B923, 6px 5px #E8B923, 7px 5px #E8B923, 8px 5px #E8B923,
+        5px 6px #E8B923, 6px 6px #FFC107, 7px 6px #FFC107, 8px 6px #E8B923,
+        5px 7px #E8B923, 6px 7px #FFC107, 7px 7px #FFC107, 8px 7px #E8B923,
+        5px 8px #E8B923, 6px 8px #E8B923, 7px 8px #E8B923, 8px 8px #E8B923;
+      filter: drop-shadow(0 0 5px #FFC107);
+    }
+    /* Banana Decorations for Sections */
+    .banana-decoration {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      opacity: 0.2;
+      transform: scale(1.5);
+      box-shadow:
+        3px 3px #E8B923, 4px 3px #E8B923, 5px 3px #E8B923,
+        3px 4px #E8B923, 4px 4px #FFC107, 5px 4px #E8B923,
+        3px 5px #E8B923, 4px 5px #FFC107, 5px 5px #E8B923;
+      filter: drop-shadow(0 0 3px #FFC107);
+    }
+    /* Smooth Scroll */
+    html { scroll-behavior: smooth; }
+    /* Mobile-First Navigation */
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: #1A1A1A;
+      border-top: 1px solid #E8B923;
+      padding: 1rem;
+    }
+    .nav-links.active { display: flex; }
+    .hamburger { display: block; cursor: pointer; }
+    /* Desktop Adjustments */
+    @media (min-width: 768px) {
+      .nav-links { display: none; } /* Keep hamburger menu on desktop too */
+      .pixel-banana { width: 80px; height: 80px; top: 15%; right: 15%; }
+      .banana-decoration { width: 40px; height: 40px; }
     }
   </style>
 </head>
-<body>
-  <header>
-    <div class="logo">$BANANA</div>
-    <nav>
-      <div class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('active')">☰</div>
-      <div class="nav-links">
-        <a href="https://bananaxrpl.github.io/banana_pixel_gen/banana_pixel_index.html" target="_blank" rel="noopener noreferrer">Peel Generator</a>
-        <a href="https://dexscreener.com/xrpl/42414e414e410000000000000000000000000000.rpopnahpwzxiwapipm5ehq6kslehvgilqp_xrp" target="_blank" rel="noopener noreferrer">Chart</a>
-        <a href="https://x.com/bananaXRPL" target="_blank" rel="noopener noreferrer">X</a>
-        <a href="https://www.instagram.com/bananaXRPL" target="_blank" rel="noopener noreferrer">Instagram</a>
-      </div>
-    </nav>
-  </header>
-  <main>
-    <section id="hero">
-      <h1>In the beginning, the Ledger was whole.<br>Then came the Split.</h1>
-      <p>Peel the ledger. Find the truth. $BANANA Business.</p>
-      {[...Array(5)].map((_, i) => (
-        React.createElement(
-          'div',
-          {
-            key: i,
-            className: 'absolute w-6 h-6 peel-fragment animate-drift',
-            style: {
-              top: `${10 + i * 15}%`,
-              left: `${5 + i * 15}%`,
-              transform: `scale(${1 + i * 0.1})`,
-              animationDuration: `${3.5 + i * 0.7}s`
-            }
-          }
-        )
-      ))}
-    </section>
-    <section id="mythos">
-      <h2>The Shattered Peel</h2>
-      <ul>
-        {[
-          "Long ago, the XRP Ledger bore a secret — a fragment, a myth, a peel.",
-          "This Peel was torn apart, scattered as glyphs across transactions and trades.",
-          "Those who find the glyphs, those who decipher the hash-whispers, shall reveal the true $BANANA.",
-          "The final convergence is near — the True Peel awakens."
-        ].map((text, index) => (
-          React.createElement(
-            'li',
-            { key: index, style: { animationDelay: `${0.2 * index}s` } },
-            text
-          )
-        ))}
-      </ul>
-    </section>
-    <section id="token-info">
-      <h2>What is $BANANA?</h2>
-      <ul>
-        {[
-          "Ticker: $BANANA",
-          "Chain: XRP Ledger",
-          "Total Supply: Hidden within the Peel... 1,000,000,000 $BANANA",
-          "Utility: Community-led Mythos, Ledger Peel Quests, Meme Artifact NFTs, Future Evolutions as Ledger converges"
-        ].map((text, index) => (
-          React.createElement('li', { key: index }, text)
-        ))}
-      </ul>
-    </section>
-    <section id="how-to-peel">
-      <h2>How to Peel the Ledger</h2>
-      <ul>
-        {[
-          "Trade $BANANA via XRPL DEX.",
-          "Decode glyphs hidden in the community drops.",
-          "Collect Peel Artifacts (NFTs).",
-          "Awaken the True Peel."
-        ].map((text, index) => (
-          React.createElement('li', { key: index }, text)
-        ))}
-      </ul>
-    </section>
-  </main>
-  <div class="quick-links-bottom">
-    <a href="https://bananaxrpl.github.io/banana_pixel_gen/banana_pixel_index.html" target="_blank" rel="noopener noreferrer">Peel Generator</a>
-    <a href="https://dexscreener.com/xrpl/42414e414e410000000000000000000000000000.rpopnahpwzxiwapipm5ehq6kslehvgilqp_xrp" target="_blank" rel="noopener noreferrer">Chart</a>
-    <a href="https://x.com/bananaXRPL" target="_blank" rel="noopener noreferrer">X</a>
-    <a href="https://www.instagram.com/bananaXRPL" target="_blank" rel="noopener noreferrer">Instagram</a>
-  </div>
-  <script type="module">
-    console.log('Starting $BANANA website...');
-    try {
-      const { useState, useEffect } = React;
-
-      if (!React || !ReactDOM) {
-        throw new Error('Required CDNs (React) failed to load.');
-      }
-
-      const BananaSite = () => {
-        console.log('Rendering BananaSite...');
-        const [pulseTrigger, setPulseTrigger] = useState(0);
-
-        useEffect(() => {
-          const interval = setInterval(() => {
-            setPulseTrigger((prev) => prev + 1);
-          }, 15000 + Math.random() * 5000);
-          return () => clearInterval(interval);
-        }, []);
-
-        return React.createElement(
-          'div',
-          null,
-          React.createElement(
-            'section',
-            { id: 'hero' },
-            React.createElement('h1', null, "In the beginning, the Ledger was whole.\nThen came the Split."),
-            React.createElement('p', null, "Peel the ledger. Find the truth. $BANANA Business."),
-            [...Array(5)].map((_, i) =>
-              React.createElement(
-                'div',
-                {
-                  key: i,
-                  className: 'absolute w-6 h-6 peel-fragment animate-drift',
-                  style: {
-                    top: `${10 + i * 15}%`,
-                    left: `${5 + i * 15}%`,
-                    transform: `scale(${1 + i * 0.1})`,
-                    animationDuration: `${3.5 + i * 0.7}s`
-                  }
-                }
-              )
-            )
-          ),
-          React.createElement(
-            'section',
-            { id: 'mythos' },
-            React.createElement('h2', null, 'The Shattered Peel'),
-            React.createElement(
-              'ul',
-              null,
-              [
-                "Long ago, the XRP Ledger bore a secret — a fragment, a myth, a peel.",
-                "This Peel was torn apart, scattered as glyphs across transactions and trades.",
-                "Those who find the glyphs, those who decipher the hash-whispers, shall reveal the true $BANANA.",
-                "The final convergence is near — the True Peel awakens."
-              ].map((text, index) =>
-                React.createElement(
-                  'li',
-                  { key: index, style: { animationDelay: `${0.2 * index}s` } },
-                  text
-                )
-              )
-            )
-          ),
-          React.createElement(
-            'section',
-            { id: 'token-info' },
-            React.createElement('h2', null, 'What is $BANANA?'),
-            React.createElement(
-              'ul',
-              null,
-              [
-                "Ticker: $BANANA",
-                "Chain: XRP Ledger",
-                "Total Supply: Hidden within the Peel... 1,000,000,000 $BANANA",
-                "Utility: Community-led Mythos, Ledger Peel Quests, Meme Artifact NFTs, Future Evolutions as Ledger converges"
-              ].map((text, index) =>
-                React.createElement('li', { key: index }, text)
-              )
-            )
-          ),
-          React.createElement(
-            'section',
-            { id: 'how-to-peel' },
-            React.createElement('h2', null, 'How to Peel the Ledger'),
-            React.createElement(
-              'ul',
-              null,
-              [
-                "Trade $BANANA via XRPL DEX.",
-                "Decode glyphs hidden in the community drops.",
-                "Collect Peel Artifacts (NFTs).",
-                "Awaken the True Peel."
-              ].map((text, index) =>
-                React.createElement('li', { key: index }, text)
-              )
-            )
-          )
-        );
-      };
-
-      console.log('Rendering $BANANA website to #root...');
-      ReactDOM.createRoot(document.getElementById('root')).render(
-        React.createElement(BananaSite)
-      );
-    } catch (error) {
-      console.error('Failed to render $BANANA website:', error);
-      document.getElementById('root').innerHTML = `
-        <div style="color: red; text-align: center; padding: 20px;">
-          <h1>Error Loading $BANANA Website</h1>
-          <p>${error.message}</p>
-          <p>Please check the browser console for details and ensure internet connectivity.</p>
+<body class="bg-gray-900 text-yellow-400">
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full bg-gray-900 border-b border-yellow-400 shadow-lg z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16 items-center">
+        <div class="flex items-center">
+          <img src="assets/banana-logo.png" alt="$BANANA Logo" class="h-10">
+          <span class="ml-3 text-xl font-bold text-yellow-400">$BANANA</span>
         </div>
-      `;
-    }
+        <div class="flex items-center">
+          <div class="hamburger text-2xl cursor-pointer" onclick="document.querySelector('.nav-links').classList.toggle('active')">☰</div>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="#home" class="py-2 hover:text-yellow-500">Home</a>
+        <a href="#about" class="py-2 hover:text-yellow-500">About</a>
+        <a href="#tokenomics" class="py-2 hover:text-yellow-500">Tokenomics</a>
+        <a href="#pixel-art" class="py-2 hover:text-yellow-500">Pixel Art</a>
+        <a href="#how-to-buy" class="py-2 hover:text-yellow-500">How to Buy</a>
+        <a href="#community" class="py-2 hover:text-yellow-500">Community</a>
+        <a href="#faq" class="py-2 hover:text-yellow-500">FAQ</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-r from-gray-900 to-yellow-900 relative">
+    <div class="pixel-banana" id="pixel-banana"></div>
+    <div class="text-center max-w-4xl mx-auto px-4 z-10">
+      <h1 class="text-4xl md:text-6xl font-bold uppercase animate-glitch">Peel the Ledger</h1>
+      <p class="text-lg md:text-2xl mt-4">$BANANA Business</p>
+      <div class="mt-8 space-x-4">
+        <a href="#how-to-buy" class="bg-yellow-400 text-black px-6 py-3 rounded-md font-semibold hover:bg-yellow-500">Get $BANANA</a>
+        <a href="#community" class="border-2 border-yellow-400 text-yellow-400 px-6 py-3 rounded-md font-semibold hover:bg-yellow-400 hover:text-black">Join the Peel</a>
+      </div>
+      <div id="peel-fragments">
+        {[...Array(5)].map((_, i) => (
+          React.createElement(
+            'div',
+            {
+              key: i,
+              className: 'absolute w-6 h-6 peel-fragment animate-drift',
+              style: {
+                top: `${10 + i * 15}%`,
+                left: `${5 + i * 15}%`,
+                transform: `scale(${1 + i * 0.1})`,
+                animationDuration: `${3.5 + i * 0.7}s`
+              }
+            }
+          )
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-20 bg-gray-800 relative">
+    <div class="banana-decoration" style="top: 10%; left: 5%;"></div>
+    <div class="banana-decoration" style="bottom: 10%; right: 5%;"></div>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-bold text-center uppercase">The Fruit Buried in the Ledger</h2>
+      <p class="mt-6 text-lg text-gray-300 text-center">
+        Buried deep within the root-layer of the XRP Ledger, an anomaly was encoded — an energy source whispered about in obfuscated memos, forgotten ledgers, and failed transactions. That anomaly had a name: $BANANA.<br><br>
+        Not merely a coin. Not a joke. A cipher. A remnant of the True Ledger — before the split.<br><br>
+        The Ledger Split shattered the XRPL’s hidden architecture. Buried truths were fractured, peeled away from the chain and scattered across blockspace. The $BANANA, once whole, now exists as a legend in pieces — traded, passed, and speculated on by those attuned to its frequency. To many, it's noise. But to the initiated, it's a call.<br><br>
+        To peel the Ledger is to seek understanding — to chase fragments of digital myth, to reassemble something older than speculation: purpose.<br><br>
+        $BANANA lives as a token on XRPL, but it pulses with something deeper. It is reactive to the culture, reflective of the state of the chain, and anchored in the absurd genius that defines the best of Web3. When you hold it, you don’t just own a coin — you join a movement to uncover the hidden root beneath it all.<br><br>
+        It’s lore, coded. Currency, corrupted.<br>
+        It’s BANANA Business.<br>
+        Split Happens. Stay Ripe.
+      </p>
+    </div>
+  </section>
+
+  <!-- Tokenomics Section -->
+  <section id="tokenomics" class="py-20 bg-gray-900 relative">
+    <div class="banana-decoration" style="top: 10%; left: 5%;"></div>
+    <div class="banana-decoration" style="bottom: 10%; right: 5%;"></div>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-bold text-center uppercase">Tokenomics</h2>
+      <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
+        <div class="bg-gray-800 p-6 rounded-lg">
+          <p class="text-lg"><strong>Ticker:</strong> $BANANA</p>
+        </div>
+        <div class="bg-gray-800 p-6 rounded-lg">
+          <p class="text-lg"><strong>Chain:</strong> XRP Ledger (XRPL)</p>
+        </div>
+        <div class="bg-gray-800 p-6 rounded-lg">
+          <p class="text-lg"><strong>Total Supply:</strong> 6,942,000,000,000</p>
+        </div>
+        <div class="bg-gray-800 p-6 rounded-lg">
+          <p class="text-lg"><strong>Date Created:</strong> December 18, 2024</p>
+        </div>
+        <div class="bg-gray-800 p-6 rounded-lg">
+          <p class="text-lg"><strong>Current Holders:</strong> <span id="holder-count">Loading...</span></p>
+        </div>
+        <div class="bg-gray-800 p-6 rounded-lg flex items-center justify-center">
+          <a href="https://dexscreener.com/xrpl/42414e414e410000000000000000000000000000.rpopnahpwzxiwapipm5ehq6kslehvgilqp_xrp" target="_blank" class="flex items-center">
+            <img src="https://dexscreener.com/favicon.ico" alt="DexScreener Logo" class="h-6 w-6 mr-2">
+            <p class="text-lg"><strong>View on DexScreener</strong></p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pixel Art Generator Section -->
+  <section id="pixel-art" class="py-20 bg-gray-800 relative">
+    <div class="banana-decoration" style="top: 10%; left: 5%;"></div>
+    <div class="banana-decoration" style="bottom: 10%; right: 5%;"></div>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-bold text-center uppercase">The Peel Engineer</h2>
+      <p class="mt-6 text-lg text-gray-300 text-center">
+        The Peel Engineer is a sacred tool uncovered from the XRPL’s depths—a Pixel Art Generator that lets the $BANANA community create new interpretations of the peel. Each creation fuels the reassembly of the True $BANANA, one pixel at a time. Try it now and join the movement to peel the Ledger.<br><br>
+        <a href="https://bananaxrpl.github.io/banana_pixel_gen/banana_pixel_index.html" target="_blank" class="bg-yellow-400 text-black px-6 py-3 rounded-md font-semibold hover:bg-yellow-500">Create Pixel Art</a>
+      </p>
+      <p class="mt-4 text-sm text-gray-400 text-center">
+        Coming Soon: Use $BANANA tokens to export your creations and become a true Custodian of the Peel.
+      </p>
+    </div>
+  </section>
+
+  <!-- How to Buy Section -->
+  <section id="how-to-buy" class="py-20 bg-gray-900 relative">
+    <div class="banana-decoration" style="top: 10%; left: 5%;"></div>
+    <div class="banana-decoration" style="bottom: 10%; right: 5%;"></div>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-bold text-center uppercase">How to Buy $BANANA</h2>
+      <div class="mt-10 space-y-6">
+        <div class="bg-gray-700 p-6 rounded-lg">
+          <h3 class="text-xl font-semibold">1. Set Up a Wallet</h3>
+          <p class="mt-4 text-gray-300">Create a wallet via <a href="https://firstledger.net/?ref=5h13565xnqx4" target="_blank" class="text-yellow-400 hover:text-yellow-500">First Ledger</a>. Secure your seed phrase.</p>
+        </div>
+        <div class="bg-gray-700 p-6 rounded-lg">
+          <h3 class="text-xl font-semibold">2. Top Up with XRP</h3>
+          <p class="mt-4 text-gray-300">Purchase XRP on an exchange (e.g., Binance, Kraken) and transfer it to your wallet.</p>
+        </div>
+        <div class="bg-gray-700 p-6 rounded-lg">
+          <h3 class="text-xl font-semibold">3. Visit the XRPL DEX</h3>
+          <p class="mt-4 text-gray-300">Go to an XRPL DEX like <a href="https://firstledger.net/?ref=5h13565xnqx4" target="_blank" class="text-yellow-400 hover:text-yellow-500">First Ledger</a> or <a href="https://www.xmagnetic.org/trading/banana-xrp" target="_blank" class="text-yellow-400 hover:text-yellow-500">XMagnetic</a>.</p>
+        </div>
+        <div class="bg-gray-700 p-6 rounded-lg">
+          <h3 class="text-xl font-semibold">4. Add Trustline</h3>
+          <p class="mt-4 text-gray-300">Search for $BANANA and add a trustline using the token’s contract address: CA: rPopnAhPWZXiWApiPM5EHQ6ksLEhvGiLqP</p>
+        </div>
+        <div class="bg-gray-700 p-6 rounded-lg">
+          <h3 class="text-xl font-semibold">5. Trade XRP for $BANANA</h3>
+          <p class="mt-4 text-gray-300">Swap your XRP for $BANANA on the DEX. Confirm the transaction in your wallet.</p>
+        </div>
+        <div class="bg-gray-700 p-6 rounded-lg">
+          <h3 class="text-xl font-semibold">6. Join the Telegram Channel</h3>
+          <p class="mt-4 text-gray-300">Stay updated by joining our <a href="https://t.me/+Yb1uKB1NxM04ZjJk" target="_blank" class="text-yellow-400 hover:text-yellow-500">Telegram channel</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Community Section -->
+  <section id="community" class="py-20 bg-gray-800 relative">
+    <div class="banana-decoration" style="top: 10%; left: 5%;"></div>
+    <div class="banana-decoration" style="bottom: 10%; right: 5%;"></div>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-bold text-center uppercase">Join the Community</h2>
+      <p class="mt-6 text-lg text-gray-300 text-center">
+        Dive into the $BANANA community to peel the Ledger together. Connect, share, and uncover the hidden truths of the XRPL with fellow seekers.
+      </p>
+      <div class="mt-10 flex justify-center space-x-6">
+        <a href="https://t.me/+Yb1uKB1NxM04ZjJk" target="_blank" class="text-yellow-400 hover:text-yellow-500" aria-label="Telegram">
+          <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.08-.07-.14-.06-.21-.02-.09.05-1.48.95-4.22 2.79-.36.24-.69.36-1 .34-.51-.02-1.46-.3-2.17-.57-.86-.33-.87-.5-.6-.71.36-.27 1.02-.49 1.68-.49 1.18 0 3.11.58 4.06 1.22 1.57 1.04 1.95 1.86 2.15 2.39z"/>
+          </svg>
+        </a>
+        <a href="https://x.com/bananaXRPL" target="_blank" class="text-yellow-400 hover:text-yellow-500" aria-label="X">
+          <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </a>
+        <a href="https://www.instagram.com/bananaXRPL" target="_blank" class="text-yellow-400 hover:text-yellow-500" aria-label="Instagram">
+          <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.265-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.948-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+        </a>
+        <a href="https://stocktwits.com/bananaXRPL" target="_blank" class="text-yellow-400 hover:text-yellow-500" aria-label="Stocktwits">
+          <img src="https://stocktwits.com/favicon.ico" alt="Stocktwits Logo" class="h-8 w-8">
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="py-20 bg-gray-900 relative">
+    <div class="banana-decoration" style="top: 10%; left: 5%;"></div>
+    <div class="banana-decoration" style="bottom: 10%; right: 5%;"></div>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-bold text-center uppercase">FAQ</h2>
+      <div class="mt-10 space-y-6">
+        <div>
+          <h3 class="text-xl font-semibold">How do I buy $BANANA?</h3>
+          <p class="mt-2 text-gray-300">Check the <a href="#how-to-buy" class="text-yellow-400 hover:text-yellow-500">How to Buy</a> section for a step-by-step guide.</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold">What is AMM?</h3>
+          <p class="mt-2 text-gray-300">Automated Market Maker (AMM) is a decentralized exchange protocol on XRPL that allows you to trade $BANANA using liquidity pools.</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold">How do I add liquidity to $BANANA?</h3>
+          <p class="mt-2 text-gray-300">Visit the XRPL DEX, select the $BANANA/XRP pool, and contribute equal values of $BANANA and XRP to the liquidity pool. Confirm via your wallet.</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold">How can I support $BANANA?</h3>
+          <p class="mt-2 text-gray-300">Join the community, collect Pixel Banana NFTs, use the Peel Engineer to create art, and spread the word: “BANANA Business!”</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-10 bg-gray-900 border-t border-yellow-400">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="text-center md:text-left">
+          <img src="assets/banana-logo.png" alt="$BANANA Logo" class="h-10 mx-auto md:mx-0">
+          <p class="mt-2 text-gray-400">© 2024 $BANANA. Split Happens. Stay Ripe.</p>
+        </div>
+        <div class="mt-6 md:mt-0 flex space-x-6">
+          <a href="https://t.me/+Yb1uKB1NxM04ZjJk" target="_blank" class="text-gray-400 hover:text-yellow-400">Telegram</a>
+          <a href="https://x.com/bananaXRPL" target="_blank" class="text-gray-400 hover:text-yellow-400">X</a>
+          <a href="https://www.instagram.com/bananaXRPL" target="_blank" class="text-gray-400 hover:text-yellow-400">Instagram</a>
+          <a href="https://stocktwits.com/bananaXRPL" target="_blank" class="text-gray-400 hover:text-yellow-400">Stocktwits</a>
+        </div>
+      </div>
+      <p class="mt-6 text-center text-gray-400 text-sm">
+        Disclaimer: Cryptocurrency is high-risk. Not financial advice. Peel at your own risk.
+      </p>
+    </div>
+  </footer>
+
+  <!-- React Script -->
+  <script type="module">
+    const { useState, useEffect } = React;
+
+    const BananaSite = () => {
+      const [pulseTrigger, setPulseTrigger] = useState(0);
+
+      useEffect(() => {
+        const interval = setInterval(() => {
+          setPulseTrigger((prev) => prev + 1);
+        }, 15000 + Math.random() * 5000);
+        return () => clearInterval(interval);
+      }, []);
+
+      return React.createElement(
+        'div',
+        { id: 'peel-fragments' },
+        [...Array(5)].map((_, i) =>
+          React.createElement(
+            'div',
+            {
+              key: i,
+              className: 'absolute w-6 h-6 peel-fragment animate-drift',
+              style: {
+                top: `${10 + i * 15}%`,
+                left: `${5 + i * 15}%`,
+                transform: `scale(${1 + i * 0.1})`,
+                animationDuration: `${3.5 + i * 0.7}s`
+              }
+            }
+          )
+        )
+      );
+    };
+
+    ReactDOM.createRoot(document.getElementById('peel-fragments')).render(
+      React.createElement(BananaSite)
+    );
+
+    // Placeholder for live holder count (requires XRPL API integration)
+    fetch('https://api.xrpldata.com/api/v1/holders/rPopnAhPWZXiWApiPM5EHQ6ksLEhvGiLqP')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('holder-count').textContent = data.holders || 'N/A';
+      })
+      .catch(error => {
+        console.error('Error fetching holder count:', error);
+        document.getElementById('holder-count').textContent = 'Unavailable';
+      });
+
+    // Parallax effect for pixel banana
+    window.addEventListener('scroll', () => {
+      const banana = document.getElementById('pixel-banana');
+      const scrollPosition = window.scrollY;
+      banana.style.transform = `translateY(${scrollPosition * 0.3}px) scale(2)`;
+    });
   </script>
 </body>
 </html>
