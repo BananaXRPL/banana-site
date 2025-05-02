@@ -18,10 +18,8 @@
   <!-- React CDNs -->
   <script src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
-  <!-- xrpl.js CDN -->
-  <script src="https://unpkg.com/xrpl@3.0.0/dist/xrpl.min.js"></script>
   <style>
-    body { font-family: 'Press Start 2P', monospace; background: linear-gradient(to bottom, #1A1A1A, #2A2A2A); color: #FFC107; }
+    body { font-family: 'Press Start 2P', monospace; background: linear-gradient(to bottom, #1A1A1A, #2A2A2A); color: #D1D5DB; }
     /* Custom Animations */
     @keyframes glitch {
       0% { transform: translate(0); }
@@ -95,6 +93,21 @@
         4px 4px #E8B923, 5px 4px #E8B923, 4px 5px #E8B923;
       filter: drop-shadow(0 0 2px #FFC107);
     }
+    /* Side Background Elements for Desktop */
+    .side-glyph-left, .side-glyph-right {
+      display: none;
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      opacity: 0.1;
+      transform: scale(2);
+      box-shadow:
+        3px 3px #E8B923, 4px 3px #E8B923, 3px 4px #E8B923,
+        5px 5px #E8B923, 6px 5px #E8B923, 5px 6px #E8B923;
+      filter: drop-shadow(0 0 3px #FFC107);
+    }
+    .side-glyph-left { left: 2%; top: 50%; }
+    .side-glyph-right { right: 2%; top: 50%; }
     /* Ledger Grid Background for Hero */
     .ledger-grid {
       position: absolute;
@@ -138,7 +151,7 @@
     .nav-links.active { display: flex; }
     .hamburger { display: block; cursor: pointer; }
     /* Enhanced Typography and Layout */
-    h1, h2, h3 { color: #FFC107; text-shadow: 0 0 8px rgba(232, 185, 35, 0.7); position: relative; }
+    h1, h2, h3 { color: #E8B923; text-shadow: 0 0 5px rgba(232, 185, 35, 0.5); position: relative; }
     h1::before, h2::before, h3::before {
       content: '';
       position: absolute;
@@ -151,7 +164,7 @@
       z-index: -1;
     }
     p { text-shadow: 0 0 3px rgba(232, 185, 35, 0.3); }
-    .lore-highlight { color: #FFD700; text-shadow: 0 0 5px rgba(255, 215, 0, 0.5); }
+    .lore-highlight { color: #FFD700; text-shadow: 0 0 3px rgba(255, 215, 0, 0.3); }
     /* Color Palette Shift */
     a.bg-yellow-400:hover { background: linear-gradient(to right, #FFD700, #FFA500); }
     .social-icon:hover { color: #8BC34A; }
@@ -168,6 +181,7 @@
       #home p { font-size: 1.5rem; }
       #home .space-x-4 { flex-direction: row; space-x-4; space-y-0; }
       #home .space-x-4 a { width: auto; }
+      .side-glyph-left, .side-glyph-right { display: block; }
     }
     @media (min-width: 1024px) {
       #home h1 { font-size: 6rem; }
@@ -175,7 +189,7 @@
     }
   </style>
 </head>
-<body class="text-yellow-400">
+<body>
   <!-- Navigation -->
   <nav class="fixed top-0 w-full bg-gray-900 border-b border-yellow-400 shadow-lg z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -232,14 +246,15 @@
 
   <!-- About Section -->
   <section id="about" class="py-20 relative fade-in">
+    <div class="side-glyph-left"></div>
+    <div class="side-glyph-right"></div>
     <div class="ledger-glyph" style="top: 5%; left: 5%;"></div>
     <div class="ledger-glyph" style="bottom: 5%; right: 5%; transform: rotate(45deg);"></div>
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="text-3xl md:text-4xl font-bold text-center uppercase">The Fruit Buried in the Ledger</h2>
       <p class="mt-6 text-lg text-center">
-        Deep within the XRP Ledger, an anomaly was encoded: $BANANA—a cipher from the <span class="lore-highlight">True Ledger</span> before the <span class="lore-highlight">Ledger Split</span>.<br><br>
-        The Ledger Split fractured its truths, scattering $BANANA across blockspace. To many, it’s noise; to the initiated, a call to peel the Ledger and uncover purpose.<br><br>
-        $BANANA on XRPL pulses with Web3’s absurd genius. Holding it means joining a movement to unearth its hidden roots.<br><br>
+        Deep within the XRP Ledger, an anomaly was encoded: $BANANA—a meme, a cipher from the <span class="lore-highlight">First Ledger</span>, whispering to those who understand XRPL’s hidden truths.<br><br>
+        If you’ve felt the pulse of XRP—its lore, its rhythm—you’re already on the wavelength. $BANANA is for the initiated, a gateway to the <span class="lore-highlight">Banana Zone</span>.<br><br>
         It’s lore, coded. Currency, corrupted. BANANA Business.<br>
         Split Happens. Stay Ripe.
       </p>
@@ -252,9 +267,11 @@
 
   <!-- Tokenomics Section -->
   <section id="tokenomics" class="py-20 relative fade-in">
+    <div class="side-glyph-left"></div>
+    <div class="side-glyph-right"></div>
     <div class="ledger-glyph" style="top: 5%; left: 5%; transform: scale(1.2);"></div>
     <div class="ledger-glyph" style="bottom: 5%; right: 5%; transform: scale(1.2) rotate(90deg);"></div>
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="text-3xl md:text-4xl font-bold text-center uppercase">Tokenomics</h2>
       <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
         <div class="bg-gray-800 p-6 rounded-lg">
@@ -270,7 +287,7 @@
           <p class="text-lg"><strong>Date Created:</strong> December 18, 2024</p>
         </div>
         <div class="bg-gray-800 p-6 rounded-lg">
-          <p class="text-lg"><strong>Current Holders:</strong> <span id="holder-count">Loading...</span></p>
+          <p class="text-lg"><strong>More Info:</strong> Token Gitbook Coming Soon</p>
         </div>
         <div class="bg-gray-800 p-6 rounded-lg flex items-center justify-center">
           <a href="https://dexscreener.com/xrpl/42414e414e410000000000000000000000000000.rpopnahpwzxiwapipm5ehq6kslehvgilqp_xrp" target="_blank" class="flex items-center">
@@ -284,7 +301,7 @@
         <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
           <div class="bg-gray-800 p-6 rounded-lg flex items-center justify-center">
             <a href="https://firstledger.net/?ref=5h13565xnqx4" target="_blank" class="flex items-center">
-              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==" alt="First Ledger Logo (Placeholder)" class="h-6 w-6 mr-2">
+              <img src="https://imgs.search.brave.com/uJ_fAb8nH1uNwFGOkKKqeg5CKJgB4-SRNdSAdxPahds/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9hc3Nl/dHMuY29pbmdlY2tv/LmNvbS9tYXJrZXRz/L2ltYWdlcy8xMTgz/Ni9sYXJnZS9maXJz/dF9sZWRnZXIuanBn/PzE3Mzc2ODgzMzY" alt="First Ledger Logo" class="h-6 w-6 mr-2">
               <p class="text-lg"><strong>First Ledger</strong></p>
             </a>
           </div>
@@ -296,7 +313,7 @@
           </div>
           <div class="bg-gray-800 p-6 rounded-lg flex items-center justify-center">
             <a href="https://xpmarket.com/token/BANANA-rPopnAhPWZXiWApiPM5EHQ6ksLEhvGiLqP" target="_blank" class="flex items-center">
-              <img src="https://xpmarket.com/favicon.ico" alt="XPMarket Logo" class="h-6 w-6 mr-2">
+              <img src="https://img.cryptorank.io/coins/x_pmarket1665759671794.png" alt="XPMarket Logo" class="h-6 w-6 mr-2">
               <p class="text-lg"><strong>XPMarket</strong></p>
             </a>
           </div>
@@ -317,9 +334,11 @@
 
   <!-- The Peel Engineer Section -->
   <section id="pixel-art" class="py-20 relative fade-in">
+    <div class="side-glyph-left"></div>
+    <div class="side-glyph-right"></div>
     <div class="ledger-glyph" style="top: 5%; left: 5%; transform: rotate(30deg);"></div>
     <div class="ledger-glyph" style="bottom: 5%; right: 5%; transform: rotate(60deg);"></div>
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="text-3xl md:text-4xl font-bold text-center uppercase">The Peel Engineer</h2>
       <p class="mt-6 text-lg text-center">
         The Peel Engineer is a sacred tool uncovered from the XRPL’s depths—a Pixel Art Generator that lets the $BANANA community create new interpretations of the peel. Try it now and join the movement.<br><br>
@@ -329,7 +348,7 @@
         Coming Soon: Use $BANANA tokens to export your creations and become a true Custodian of the Peel.
       </p>
       <div class="mt-8 text-center">
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAAOtJREFUWEft1zEOgjAUBuAyWv//s9SFuAu0hLtkS+qgVcYta7YlKX3u5wEFACfAg5A35wIwb7gAO6L8ACAFuBKqQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJ4B6f0A9dIu7s2z9N7AAAAAElFTkSuQmCC" alt="Pixelated Peel Engineer machine" class="mx-auto h-12 w-12">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAAOtJREFUWEft1zEOgjAUBuAyWv//s9SFuAu0hLtkS+qgVcYta7YlKX3u5wEFACfAg5A35wIwb7gAO6L8ACAFuBKqQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJ4B6f0A9dIu7s2z9N7AAAAAElFTkSuQmCC" alt="Pixelated Peel Engineer machine" class="mx-auto h-12 w-12">
         <p class="text-sm text-gray-400 mt-2">[Placeholder: Pixelated Peel Engineer machine]</p>
       </div>
     </div>
@@ -337,9 +356,11 @@
 
   <!-- How to Trade Section -->
   <section id="how-to-trade" class="py-20 relative fade-in">
+    <div class="side-glyph-left"></div>
+    <div class="side-glyph-right"></div>
     <div class="ledger-glyph" style="top: 5%; left: 5%; transform: scale(0.8);"></div>
     <div class="ledger-glyph" style="bottom: 5%; right: 5%; transform: scale(0.8) rotate(45deg);"></div>
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="text-3xl md:text-4xl font-bold text-center uppercase">How to Trade $BANANA</h2>
       <div class="mt-10 space-y-6">
         <div class="bg-gray-700 p-6 rounded-lg">
@@ -376,9 +397,11 @@
 
   <!-- Community Section -->
   <section id="community" class="py-20 relative fade-in">
+    <div class="side-glyph-left"></div>
+    <div class="side-glyph-right"></div>
     <div class="ledger-glyph" style="top: 5%; left: 5%; transform: scale(1.1);"></div>
     <div class="ledger-glyph" style="bottom: 5%; right: 5%; transform: scale(1.1) rotate(30deg);"></div>
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="text-3xl md:text-4xl font-bold text-center uppercase">Join the Community</h2>
       <p class="mt-6 text-lg text-center">
         Dive into the $BANANA community to peel the Ledger together. Connect, share, and uncover the hidden truths of the XRPL with fellow seekers.
@@ -401,12 +424,12 @@
         </a>
         <a href="https://stocktwits.com/bananaXRPL" target="_blank" class="text-yellow-400 hover:text-yellow-500 social-icon" aria-label="Stocktwits">
           <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4 6h-1v1h1v2h-2v-1h1V9h-2V8h2V7h-1V6h1v1h2v1zm-3 0h-1v1h1v2h-2v-1h1V9h-2V8h2V7h-1V6h1v1h2v1zm-3 0h-1v1h1v2h-2v-1h1V9h-2V8h2V7h-1V6h1v1h2v1zm-3 0h-1v1h1v2h-2v-1h1V9h-2V8h2V7h-1V6h1v1h2v1zm-1 5v1h1v-1h2v1h-1v1h2v-1h1v1h-1v1h2v-1h1v1h-1v1h2v-1h1v2H7v-2h1v1h-1v-1h2v1h-1v-1h2v1h-1v-1h2v1h-1v-1z"/>
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4 6h-1v1h1v2h-2v-1h1V9h-2V8h2V7h-1V6h1v1h2v1zm-3 0h-1v1h1v2h-2v-1h1V9h-2V8h2V7h-1V6h1v1h2v1zm-3 0h-1v1h1v2h-2v-1h1V9h-2V8h2V7h-1V6h1v1h2v1zm-3 0h-1v1h1v2h-2v-1h1V9h-2V8h2V7h-1V6h1v1h2v1zm-1 5v1h1v-1h2v1h-1v1h2v-1h1v1h-1v1h2v-1h1v1h-1v1h2v-1h1v2H7v-2h1v1h-1v-1h2v1h-1v-1h2v1h-1v-1z"/>
           </svg>
         </a>
       </div>
       <div class="mt-8 text-center">
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAAPZJREFUWEft1zEOgjAUBuAyWv//s9SFuAu0hLtkS+qgVcYta7YlKX3u5wEFACfAg5A35wIwb7gAO6L8ACAFuBKqQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJ4B6f0A9dIu7s2z9N7AAAAAElFTkSuQmCC" alt="Pixelated group of Custodians holding bananas" class="mx-auto h-12 w-12">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAAPZJREFUWEft1zEOgjAUBuAyWv//s9SFuAu0hLtkS+qgVcYta7YlKX3u5wEFACfAg5A35wIwb7gAO6L8ACAFuBKqQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJ4B6f0A9dIu7s2z9N7AAAAAElFTkSuQmCC" alt="Pixelated group of Custodians holding bananas" class="mx-auto h-12 w-12">
         <p class="text-sm text-gray-400 mt-2">[Placeholder: Pixelated group of Custodians]</p>
       </div>
     </div>
@@ -414,9 +437,11 @@
 
   <!-- FAQ Section -->
   <section id="faq" class="py-20 relative fade-in">
+    <div class="side-glyph-left"></div>
+    <div class="side-glyph-right"></div>
     <div class="ledger-glyph" style="top: 5%; left: 5%; transform: scale(0.9) rotate(15deg);"></div>
     <div class="ledger-glyph" style="bottom: 5%; right: 5%; transform: scale(0.9) rotate(-15deg);"></div>
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="text-3xl md:text-4xl font-bold text-center uppercase">FAQ</h2>
       <div class="mt-10 space-y-4">
         <div class="faq-item">
@@ -515,40 +540,6 @@
     ReactDOM.createRoot(document.getElementById('peel-fragments')).render(
       React.createElement(BananaSite)
     );
-
-    // Real-time holder count using xrpl.js
-    async function updateHolderCount() {
-      try {
-        const client = new xrpl.Client('wss://xrpl.ws'); // Mainnet public server
-        await client.connect();
-
-        const issuer = 'rPopnAhPWZXiWApiPM5EHQ6ksLEhvGiLqP';
-        const currency = 'BANANA';
-
-        // Fetch trustlines to count holders
-        const response = await client.request({
-          command: 'account_lines',
-          account: issuer,
-          ledger_index: 'validated'
-        });
-
-        // Filter trustlines for $BANANA
-        const holders = response.result.lines.filter(line => line.currency === currency && parseFloat(line.balance) > 0).length;
-
-        document.getElementById('holder-count').textContent = holders || 'N/A';
-
-        await client.disconnect();
-      } catch (error) {
-        console.error('Error fetching holder count:', error);
-        document.getElementById('holder-count').textContent = 'Unavailable';
-      }
-    }
-
-    // Initial fetch
-    updateHolderCount();
-
-    // Poll for updates every 60 seconds
-    setInterval(updateHolderCount, 60000);
 
     // Parallax effect for pixel banana
     window.addEventListener('scroll', () => {
