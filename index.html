@@ -134,6 +134,26 @@
     .faq-question:hover { background-color: #3A3A3A; }
     .faq-answer { display: none; padding: 1rem; background-color: #1A1A1A; border: 1px solid #E8B923; border-top: none; border-radius: 0 0 0.5rem 0.5rem; }
     .faq-answer.active { display: block; }
+    /* Audio Player Styles */
+    .audio-player {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .audio-player button {
+      background-color: #E8B923;
+      color: #1A1A1A;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .audio-player button:hover {
+      background: linear-gradient(to right, #FFD700, #FFA500);
+    }
     /* Smooth Scroll */
     html { scroll-behavior: smooth; }
     /* Mobile-First Navigation */
@@ -151,28 +171,23 @@
     .nav-links.active { display: flex; }
     .hamburger { display: block; cursor: pointer; }
     /* Enhanced Typography and Layout */
-    h1, h2, h3 { color: #E8B923; text-shadow: 0 0 5px rgba(232, 185, 35, 0.5); position: relative; }
-    h1::before, h2::before, h3::before {
-      content: '';
-      position: absolute;
-      top: -20px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100px;
-      height: 100px;
-      background: radial-gradient(circle, rgba(232, 185, 35, 0.2), transparent);
-      z-index: -1;
-    }
+    h1, h2, h3 { color: #E8B923; text-shadow: 0 0 5px rgba(232, 185, 35, 0.5); }
+    #home h1 { text-shadow: 0 0 8px rgba(232, 185, 35, 0.7); }
     p { text-shadow: 0 0 3px rgba(232, 185, 35, 0.3); }
     .lore-highlight { color: #FFD700; text-shadow: 0 0 3px rgba(255, 215, 0, 0.3); }
     /* Color Palette Shift */
     a.bg-yellow-400:hover { background: linear-gradient(to right, #FFD700, #FFA500); }
-    .social-icon:hover { color: #8BC34A; }
+    .social-icon:hover { color: #8BC34A; transform: scale(1.1); transition: transform 0.3s; }
+    /* Placeholder Images */
+    img:not([src*="data:image"]) { filter: drop-shadow(0 0 5px rgba(232, 185, 35, 0.3)); }
     /* Mobile-First Hero Adjustments */
     #home h1 { font-size: 2rem; }
     #home p { font-size: 1rem; }
     #home .space-x-4 { flex-direction: column; space-x-0; space-y-4; }
     #home .space-x-4 a { width: 100%; text-align: center; }
+    /* Mobile Footer Adjustments */
+    footer .flex.space-x-6 { flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
+    footer a { font-size: 0.875rem; }
     /* Desktop Adjustments */
     @media (min-width: 768px) {
       .nav-links { display: none; }
@@ -182,6 +197,9 @@
       #home .space-x-4 { flex-direction: row; space-x-4; space-y-0; }
       #home .space-x-4 a { width: auto; }
       .side-glyph-left, .side-glyph-right { display: block; }
+      h2 { font-size: 3.5rem; }
+      footer .flex.space-x-6 { flex-wrap: nowrap; gap: 0; }
+      footer a { font-size: 1rem; }
     }
     @media (min-width: 1024px) {
       #home h1 { font-size: 6rem; }
@@ -204,8 +222,8 @@
       <div class="nav-links">
         <a href="#home" class="py-2 hover:text-yellow-500">Home</a>
         <a href="#about" class="py-2 hover:text-yellow-500">About</a>
-        <a href="#tokenomics" class="py-2 hover:text-yellow-500">Tokenomics</a>
         <a href="#pixel-art" class="py-2 hover:text-yellow-500">Pixel Art</a>
+        <a href="#tokenomics" class="py-2 hover:text-yellow-500">Tokenomics</a>
         <a href="#how-to-trade" class="py-2 hover:text-yellow-500">How to Trade</a>
         <a href="#community" class="py-2 hover:text-yellow-500">Community</a>
         <a href="#faq" class="py-2 hover:text-yellow-500">FAQ</a>
@@ -259,8 +277,30 @@
         Split Happens. Stay Ripe.
       </p>
       <div class="mt-8 text-center">
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==" alt="Placeholder for $BANANA lore image: Pixelated depiction of the Ledger Split, showing a fractured banana with glowing shards" class="mx-auto max-w-full h-auto">
+        <img src="assets/about-ledger-split.png" alt="Pixelated depiction of the Ledger Split, showing a fractured banana with glowing shards" class="mx-auto max-w-full h-auto">
         <p class="text-sm text-gray-400 mt-2">[Placeholder: Pixelated depiction of the Ledger Split, showing a fractured banana with glowing shards]</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Peel Engineer Section -->
+  <section id="pixel-art" class="py-20 relative fade-in">
+    <div class="side-glyph-left"></div>
+    <div class="side-glyph-right"></div>
+    <div class="ledger-glyph" style="top: 5%; left: 5%; transform: rotate(30deg);"></div>
+    <div class="ledger-glyph" style="bottom: 5%; right: 5%; transform: rotate(60deg);"></div>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-bold text-center uppercase">The Peel Engineer</h2>
+      <p class="mt-6 text-lg text-center">
+        The Peel Engineer is a sacred tool uncovered from the XRPL’s depths—a Pixel Art Generator that lets the $BANANA community create new interpretations of the peel. Try it now and join the movement.<br><br>
+        <a href="https://bananaxrpl.github.io/banana_pixel_gen/banana_pixel_index.html" target="_blank" class="bg-yellow-400 text-black px-6 py-3 rounded-md font-semibold hover:bg-yellow-500">Create Pixel Art</a>
+      </p>
+      <p class="mt-4 text-sm text-gray-400 text-center">
+        Coming Soon: Use $BANANA tokens to export your creations and become a true Custodian of the Peel.
+      </p>
+      <div class="mt-8 text-center">
+        <img src="assets/peel-engineer-machine.png" alt="Pixelated Peel Engineer machine" class="mx-auto h-12 w-12">
+        <p class="text-sm text-gray-400 mt-2">[Placeholder: Pixelated Peel Engineer machine]</p>
       </div>
     </div>
   </section>
@@ -289,16 +329,16 @@
         <div class="bg-gray-800 p-6 rounded-lg">
           <p class="text-lg"><strong>More Info:</strong> Token Gitbook Coming Soon</p>
         </div>
-        <div class="bg-gray-800 p-6 rounded-lg flex items-center justify-center">
-          <a href="https://dexscreener.com/xrpl/42414e414e410000000000000000000000000000.rpopnahpwzxiwapipm5ehq6kslehvgilqp_xrp" target="_blank" class="flex items-center">
-            <img src="https://dexscreener.com/favicon.ico" alt="DexScreener Logo" class="h-6 w-6 mr-2">
-            <p class="text-lg"><strong>View on DexScreener</strong></p>
-          </a>
-        </div>
       </div>
       <div class="mt-10">
         <h3 class="text-2xl font-bold text-center uppercase">Listed DEX Platforms</h3>
         <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+          <div class="bg-gray-800 p-6 rounded-lg flex items-center justify-center">
+            <a href="https://dexscreener.com/xrpl/42414e414e410000000000000000000000000000.rpopnahpwzxiwapipm5ehq6kslehvgilqp_xrp" target="_blank" class="flex items-center">
+              <img src="https://dexscreener.com/favicon.ico" alt="DexScreener Logo" class="h-6 w-6 mr-2">
+              <p class="text-lg"><strong>DexScreener</strong></p>
+            </a>
+          </div>
           <div class="bg-gray-800 p-6 rounded-lg flex items-center justify-center">
             <a href="https://firstledger.net/?ref=5h13565xnqx4" target="_blank" class="flex items-center">
               <img src="https://imgs.search.brave.com/uJ_fAb8nH1uNwFGOkKKqeg5CKJgB4-SRNdSAdxPahds/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9hc3Nl/dHMuY29pbmdlY2tv/LmNvbS9tYXJrZXRz/L2ltYWdlcy8xMTgz/Ni9sYXJnZS9maXJz/dF9sZWRnZXIuanBn/PzE3Mzc2ODgzMzY" alt="First Ledger Logo" class="h-6 w-6 mr-2">
@@ -319,37 +359,15 @@
           </div>
           <div class="bg-gray-800 p-6 rounded-lg flex items-center justify-center">
             <a href="https://swap.xgclabs.io/XRP/BANANA" target="_blank" class="flex items-center">
-              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==" alt="XGCLabz Logo (Placeholder)" class="h-6 w-6 mr-2">
-              <p class="text-lg"><strong>XGCLabz</strong></p>
+              <img src="https://framerusercontent.com/images/RjwEo2d6vC5echaSnzkOhD6sA4.svg" alt="XGC Labs Logo" class="h-6 w-6 mr-2">
+              <p class="text-lg"><strong>XGC Labs</strong></p>
             </a>
           </div>
         </div>
       </div>
       <div class="mt-8 text-center">
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAAMpJREFUWEft1zEKwCAQBuA2Wv//s3Qh7gSH4G3ZkjpIlXHLmG3bZkhKz/M8oADgBHgQ8uZcAOYdF2BXlB8ApgW4EqpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJ4B6f0A6uIu8s2z9N7AAAAAElFTkSuQmCC" alt="Pixelated banana vault representing token supply" class="mx-auto h-12 w-12">
+        <img src="assets/tokenomics-banana-vault.png" alt="Pixelated banana vault representing token supply" class="mx-auto h-12 w-12">
         <p class="text-sm text-gray-400 mt-2">[Placeholder: Pixelated banana vault]</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- The Peel Engineer Section -->
-  <section id="pixel-art" class="py-20 relative fade-in">
-    <div class="side-glyph-left"></div>
-    <div class="side-glyph-right"></div>
-    <div class="ledger-glyph" style="top: 5%; left: 5%; transform: rotate(30deg);"></div>
-    <div class="ledger-glyph" style="bottom: 5%; right: 5%; transform: rotate(60deg);"></div>
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl md:text-4xl font-bold text-center uppercase">The Peel Engineer</h2>
-      <p class="mt-6 text-lg text-center">
-        The Peel Engineer is a sacred tool uncovered from the XRPL’s depths—a Pixel Art Generator that lets the $BANANA community create new interpretations of the peel. Try it now and join the movement.<br><br>
-        <a href="https://bananaxrpl.github.io/banana_pixel_gen/banana_pixel_index.html" target="_blank" class="bg-yellow-400 text-black px-6 py-3 rounded-md font-semibold hover:bg-yellow-500">Create Pixel Art</a>
-      </p>
-      <p class="mt-4 text-sm text-gray-400 text-center">
-        Coming Soon: Use $BANANA tokens to export your creations and become a true Custodian of the Peel.
-      </p>
-      <div class="mt-8 text-center">
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAAOtJREFUWEft1zEOgjAUBuAyWv//s9SFuAu0hLtkS+qgVcYta7YlKX3u5wEFACfAg5A35wIwb7gAO6L8ACAFuBKqQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJ4B6f0A9dIu7s2z9N7AAAAAElFTkSuQmCC" alt="Pixelated Peel Engineer machine" class="mx-auto h-12 w-12">
-        <p class="text-sm text-gray-400 mt-2">[Placeholder: Pixelated Peel Engineer machine]</p>
       </div>
     </div>
   </section>
@@ -389,7 +407,7 @@
         </div>
       </div>
       <div class="mt-8 text-center">
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAAN5JREFUWEft1zEOgjAUBuAyWv//s9SFuAu0hLtkS+qgVcYta7YlKX3u5wEFACfAg5A35wIwb7gAO6L8ACAFuBKqQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJ4B6f0A9dIu7s2z9N7AAAAAElFTkSuQmCC" alt="Pixelated trading screen with bananas as currency" class="mx-auto h-12 w-12">
+        <img src="assets/how-to-trade-screen.png" alt="Pixelated trading screen with bananas as currency" class="mx-auto h-12 w-12">
         <p class="text-sm text-gray-400 mt-2">[Placeholder: Pixelated trading screen with bananas]</p>
       </div>
     </div>
@@ -409,12 +427,12 @@
       <div class="mt-10 flex justify-center space-x-6">
         <a href="https://t.me/+Yb1uKB1NxM04ZjJk" target="_blank" class="text-yellow-400 hover:text-yellow-500 social-icon" aria-label="Telegram">
           <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.08-.07-.14-.06-.21-.02-.09.05-1.48.95-4.22 2.79-.36.24-.69.36-1 .34-.51-.02-1.46-.3-2.17-.57-.86-.33-.87-.5-.6-.71.36-.27 1.02-.49 1.68-.49 1.18 0 3.11.58 4.06 1.22 1.57 1.04 1.95 1.86 2.15 2.39z"/>
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 6h-3v1h2v1h-1v1h-2v-1h1v-1h-2V8h3v1h2v1zm-3 2h-1v1h1v1h-2v-1h1v-1h-2v-1h2v1h2v1zm-3 0h-1v1h1v1h-2v-1h1v-1h-2v-1h2v1h2v1zm-3 0h-1v1h1v1h-2v-1h1v-1h-2v-1h2v1h2v1zm-1 4h2v-1h1v1h-1v1h2v-1h1v1h-1v1h2v-1h1v1h-1v1h2v-1h1v2H7v-2h1v1h-1v-1h2v1h-1v-1z"/>
           </svg>
         </a>
         <a href="https://x.com/bananaXRPL" target="_blank" class="text-yellow-400 hover:text-yellow-500 social-icon" aria-label="X">
           <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.08-.07-.14-.06-.21-.02-.09.05-1.48.95-4.22 2.79-.36.24-.69.36-1 .34-.51-.02-1.46-.3-2.17-.57-.86-.33-.87-.5-.6-.71.36-.27 1.02-.49 1.68-.49 1.18 0 3.11.58 4.06 1.22 1.57 1.04 1.95 1.86 2.15 2.39z"/>
           </svg>
         </a>
         <a href="https://www.instagram.com/bananaXRPL" target="_blank" class="text-yellow-400 hover:text-yellow-500 social-icon" aria-label="Instagram">
@@ -424,13 +442,9 @@
         </a>
         <a href="https://stocktwits.com/bananaXRPL" target="_blank" class="text-yellow-400 hover:text-yellow-500 social-icon" aria-label="Stocktwits">
           <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4 6h-1v1h1v2h-2v-1h1V9h-2V8h2V7h-1V6h1v1h2v1zm-3 0h-1v1h1v2h-2v-1h1V9h-2V8h2V7h-1V6h1v1h2v1zm-3 0h-1v1h1v2h-2v-1h1V9h-2V8h2V7h-1V6h1v1h2v1zm-3 0h-1v1h1v2h-2v-1h1V9h-2V8h2V7h-1V6h1v1h2v1zm-1 5v1h1v-1h2v1h-1v1h2v-1h1v1h-1v1h2v-1h1v1h-1v1h2v-1h1v2H7v-2h1v1h-1v-1h2v1h-1v-1h2v1h-1v-1z"/>
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 7h-2v1h1v1h-1v1h-2v-1h1v-1h-2V9h2v1h2v1zm-3 1h-1v1h1v1h-2v-1h1v-1h-2v-1h2v1h2v1zm-3 0h-1v1h1v1h-2v-1h1v-1h-2v-1h2v1h2v1zm-3 0h-1v1h1v1h-2v-1h1v-1h-2v-1h2v1h2v1zm-1 4h2v-1h1v1h-1v1h2v-1h1v1h-1v1h2v-1h1v1h-1v1h2v-1h1v2H7v-2h1v1h-1v-1h2v1h-1v-1z"/>
           </svg>
         </a>
-      </div>
-      <div class="mt-8 text-center">
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAAPZJREFUWEft1zEOgjAUBuAyWv//s9SFuAu0hLtkS+qgVcYta7YlKX3u5wEFACfAg5A35wIwb7gAO6L8ACAFuBKqQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJ4B6f0A9dIu7s2z9N7AAAAAElFTkSuQmCC" alt="Pixelated group of Custodians holding bananas" class="mx-auto h-12 w-12">
-        <p class="text-sm text-gray-400 mt-2">[Placeholder: Pixelated group of Custodians]</p>
       </div>
     </div>
   </section>
@@ -477,16 +491,18 @@
           </div>
         </div>
       </div>
-      <div class="mt-8 text-center">
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAAOZJREFUWEft1zEOgjAUBuAyWv//s9SFuAu0hLtkS+qgVcYta7YlKX3u5wEFACfAg5A35wIwb7gAO6L8ACAFuBKqQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJ4B6f0A9dIu7s2z9N7AAAAAElFTkSuQmCC" alt="Pixelated Ledger glyph book" class="mx-auto h-12 w-12">
-        <p class="text-sm text-gray-400 mt-2">[Placeholder: Pixelated Ledger glyph book]</p>
-      </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="py-10 bg-gray-900 border-t border-yellow-400">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="audio-player">
+        <button id="play-btn" aria-label="Play Song">Play</button>
+        <button id="pause-btn" aria-label="Pause Song">Pause</button>
+      </div>
+      <audio id="banana-song" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+      <p class="text-center text-sm text-gray-400 mb-4">[Placeholder: AI-generated $BANANA song]</p>
       <div class="flex flex-col md:flex-row justify-between items-center">
         <div class="text-center md:text-left">
           <span class="text-xl font-bold text-yellow-400">$BANANA</span>
@@ -546,6 +562,19 @@
       const banana = document.getElementById('pixel-banana');
       const scrollPosition = window.scrollY;
       banana.style.transform = `translateY(${scrollPosition * 0.3}px) scale(2)`;
+    });
+
+    // Audio Player Controls
+    const audio = document.getElementById('banana-song');
+    const playBtn = document.getElementById('play-btn');
+    const pauseBtn = document.getElementById('pause-btn');
+
+    playBtn.addEventListener('click', () => {
+      audio.play();
+    });
+
+    pauseBtn.addEventListener('click', () => {
+      audio.pause();
     });
   </script>
 </body>
