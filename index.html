@@ -9,7 +9,8 @@
   <meta property="og:title" content="$BANANA - Peel the Ledger" />
   <meta property="og:description" content="Join the $BANANA revolution on XRPL. Peel the Ledger. Find the Truth." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="banana-logo.png" />
+  <meta property="og:url" content="https://www.bananaXRP.com" />
+  <meta property="og:image" content="https://www.bananaXRP.com/banana-logo.png" />
   <title>$BANANA - Peel the Ledger</title>
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -52,7 +53,7 @@
     }
     @keyframes carouselSlide {
       0% { opacity: 0; transform: translateX(20px); }
-      5% { opacity: 1; transform: translateX(0); }
+      10% { opacity: 1; transform: translateX(0); }
       13% { opacity: 1; transform: translateX(0); }
       14% { opacity: 0; transform: translateX(-20px); }
       100% { opacity: 0; }
@@ -178,6 +179,13 @@
       filter: drop-shadow(0 0 5px rgba(232, 185, 35, 0.3));
     }
     .carousel-slide.active-glitch { animation: glitch 0.3s ease infinite alternate; }
+    /* Tokenomics Block Consistency */
+    .tokenomics-block {
+      min-height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
     /* Footer Styles */
     .footer {
       background: #1A1A1A;
@@ -191,7 +199,6 @@
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 1rem;
-      min-width: 0;
     }
     .footer-about {
       text-align: center;
@@ -408,46 +415,11 @@
         <div class="bg-gray-800 p-6 rounded-lg">
           <p class="text-lg"><strong>Date Created:</strong> December 18, 2024</p>
         </div>
-        <div class="bg-gray-800 p-6 rounded-lg">
-          <p class="text-lg"><strong>NFT Sales:</strong> The Banana Collective 1/1 Artist Collection proceeds split 50/50 between the $BANANA AMM pool and the artist. Future collections fund the AMM pool directly.</p>
+        <div class="bg-gray-800 p-6 rounded-lg md:col-span-2 tokenomics-block">
+          <p class="text-lg"><strong>NFT Sales:</strong> Proceeds from The Banana Collective 1/1 Artist Collection split 50/50 between the $BANANA AMM pool and the artist. Future collections will fully fund the AMM pool.</p>
         </div>
-        <div class="bg-gray-800 p-6 rounded-lg md:col-span-2">
-          <p class="text-lg"><strong>Dev Allocation:</strong> 0% at launch. I buy alongside you, taking the same risks, supporting through buying, LP contributions, and marketing. Let’s build this community together—join the trenches and trade.</p>
-        </div>
-      </div>
-      <div class="mt-10">
-        <h3 class="text-2xl font-bold text-center uppercase">Listed DEX Platforms</h3>
-        <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-          <div class="bg-gray-800 p-6 rounded-lg flex items-center justify-center">
-            <a href="https://dexscreener.com/xrpl/42414e414e410000000000000000000000000000.rpopnahpwzxiwapipm5ehq6kslehvgilqp_xrp" target="_blank" class="flex items-center">
-              <img src="https://dexscreener.com/favicon.ico" alt="DexScreener Logo" class="h-6 w-6 mr-2">
-              <p class="text-lg"><strong>DexScreener</strong></p>
-            </a>
-          </div>
-          <div class="bg-gray-800 p-6 rounded-lg flex items-center justify-center">
-            <a href="https://firstledger.net/?ref=5h13565xnqx4" target="_blank" class="flex items-center">
-              <img src="https://imgs.search.brave.com/uJ_fAb8nH1uNwFGOkKKqeg5CKJgB4-SRNdSAdxPahds/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9hc3Nl/dHMuY29pbmdlY2tv/LmNvbS9tYXJrZXRz/L2ltYWdlcy8xMTgz/Ni9sYXJnZS9maXJz/dF9sZWRnZXIuanBn/PzE3Mzc2ODgzMzY" alt="First Ledger Logo" class="h-6 w-6 mr-2">
-              <p class="text-lg"><strong>First Ledger</strong></p>
-            </a>
-          </div>
-          <div class="bg-gray-800 p-6 rounded-lg flex items-center justify-center">
-            <a href="https://xmagnetic.org/tokens/BANANA+rPopnAhPWZXiWApiPM5EHQ6ksLEhvGiLqP?network=mainnet" target="_blank" class="flex items-center">
-              <img src="https://xmagnetic.org/favicon.ico" alt="xMagnetic Logo" class="h-6 w-6 mr-2">
-              <p class="text-lg"><strong>xMagnetic</strong></p>
-            </a>
-          </div>
-          <div class="bg-gray-800 p-6 rounded-lg flex items-center justify-center">
-            <a href="https://xpmarket.com/token/BANANA-rPopnAhPWZXiWApiPM5EHQ6ksLEhvGiLqP" target="_blank" class="flex items-center">
-              <img src="https://img.cryptorank.io/coins/x_pmarket1665759671794.png" alt="XPMarket Logo" class="h-6 w-6 mr-2">
-              <p class="text-lg"><strong>XPMarket</strong></p>
-            </a>
-          </div>
-          <div class="bg-gray-800 p-6 rounded-lg flex items-center justify-center">
-            <a href="https://swap.xgclabs.io/XRP/BANANA" target="_blank" class="flex items-center">
-              <img src="https://framerusercontent.com/images/RjwEo2d6vC5echaSnzkOhD6sA4.svg" alt="XGC Labs Logo" class="h-6 w-6 mr-2">
-              <p class="text-lg"><strong>XGC Labs</strong></p>
-            </a>
-          </div>
+        <div class="bg-gray-800 p-6 rounded-lg md:col-span-2 tokenomics-block">
+          <p class="text-lg"><strong>Dev Allocation:</strong> 0% at launch. I buy alongside you, taking the same risks, supporting through buying, LPs, and resources. Let’s build this together—join the trenches and trade.</p>
         </div>
       </div>
       <div class="mt-8 text-center">
@@ -508,39 +480,40 @@
         Explore The Banana Collective, a 1/1 Artist Collection on the XRP Ledger. Each NFT is a unique piece of pixelated art, pulsing with $BANANA’s absurd genius. Check out the collection on <a href="https://xrp.cafe/collection/the-banana-collective" target="_blank" class="text-yellow-400 hover:text-yellow-500">XRP Cafe</a>.
       </p>
       <div class="mt-8 carousel">
+        <!-- Note: Ensure the following images are uploaded to the root of bananaxrpl/banana-site/: nft-king-banana.png, nft-banana-king.png, etc. -->
         <div class="carousel-slide active-glitch">
           <a href="https://xrp.cafe/nft/00082710F2196D4058D07714EA03D919DE5F44AFAD9377581526092E0583B48C" target="_blank">
-            <img src="https://cdn.xrp.cafe/17ffca534bbe-4ea7-805c-da1ec44308fb49429609e3e7-4270-ba55-925daa548afea889088959e4-4532-9bdd-dc4e27c153f0.webp" alt="Banana Collective NFT 1">
+            <img src="nft-king-banana.png" alt="King Banana">
           </a>
         </div>
         <div class="carousel-slide active-glitch">
           <a href="https://xrp.cafe/nft/00082710F2196D4058D07714EA03D919DE5F44AFAD937758A2A8F62B0583B487" target="_blank">
-            <img src="https://cdn.xrp.cafe/66dbc89a78e2-4634-a3d4-b0b6acd56e295294c58893f6-4bed-ba1e-1e457a1a55c06d56fe56b156-45b0-9191-9318e2d30398.webp" alt="Banana Collective NFT 2">
+            <img src="nft-banana-king.png" alt="The Banana King">
           </a>
         </div>
         <div class="carousel-slide active-glitch">
           <a href="https://xrp.cafe/nft/00082710F2196D4058D07714EA03D919DE5F44AFAD937758B98EC52A0583B488" target="_blank">
-            <img src="https://cdn.xrp.cafe/1cfdaecc5902-4686-98d9-079bba6f504b2f5b261118f6-4204-9686-fd841f89415360a0c752ab99-45d2-9788-1b7bc5a6834d.webp" alt="Banana Collective NFT 3">
+            <img src="nft-banuga-king.png" alt="BaNuGa KiNg by UgA BuGa">
           </a>
         </div>
         <div class="carousel-slide active-glitch">
           <a href="https://xrp.cafe/nft/00082710F2196D4058D07714EA03D919DE5F44AFAD937758D074942D0583B489" target="_blank">
-            <img src="https://cdn.xrp.cafe/e5627aa9dd14-41f5-97dd-8ad536d8617461a1ca85b514-42c1-b1a5-506dea5ccdde6199fab2abb4-42b5-90d3-f86508f42fad.webp" alt="Banana Collective NFT 4">
+            <img src="nft-gorilla-glue.png" alt="Gorilla Glue">
           </a>
         </div>
         <div class="carousel-slide active-glitch">
           <a href="https://xrp.cafe/nft/00082710F2196D4058D07714EA03D919DE5F44AFAD937758E75A6B2C0583B48A" target="_blank">
-            <img src="https://cdn.xrp.cafe/5b329c9267e6-4809-bdb6-0a1a3884ca9ce06b77944382-44a6-9de0-64615fa032afbad2a3f1fe7e-488f-bf09-69d55072bf31.webp" alt="Banana Collective NFT 5">
+            <img src="nft-banana-xhuwahuwa.png" alt="$BANANAxhuwahuwa-d">
           </a>
         </div>
         <div class="carousel-slide active-glitch">
           <a href="https://xrp.cafe/nft/00082710F2196D4058D07714EA03D919DE5F44AFAD937758FE403A2F0583B48B" target="_blank">
-            <img src="https://cdn.xrp.cafe/61d403f773f0-4420-91b5-c83f1653be9256cad50dc086-4269-99e0-6326423117249928b30257f8-4f55-abc0-210c3ff75377.webp" alt="Banana Collective NFT 6">
+            <img src="nft-fronana-introspection.png" alt="fronana introspection">
           </a>
         </div>
         <div class="carousel-slide active-glitch">
           <a href="https://xrp.cafe/nft/00082710F2196D4058D07714EA03D919DE5F44AFAD9377582C0BD8210583B48D" target="_blank">
-            <img src="https://cdn.xrp.cafe/61d8911583b2-4a60-a99d-86a797ebb244152294ac02ad-497a-a6f2-828ff119a8c127d860f5f6d2-4a9b-8b21-b740631d41af.webp" alt="Banana Collective NFT 7">
+            <img src="nft-banana-pirate-captain.png" alt="Banana Pirate Captain">
           </a>
         </div>
       </div>
@@ -557,7 +530,7 @@
       <h2 class="text-3xl md:text-4xl font-bold text-center uppercase">The Peel Engineer</h2>
       <p class="mt-6 text-lg text-center">
         The Peel Engineer is a sacred tool uncovered from the XRPL’s depths—a Pixel Art Generator that lets the $BANANA community create new interpretations of the peel. Try it now and join the movement.<br><br>
-        <a href="https://bananaxrpl.github.io/banana_pixel_gen/banana_pixel_index.html" target="_blank" class="bg-yellow-400 text-black px-6 py-3 rounded-md font-semibold hover:bg-yellow-500">Create Pixel Art</a>
+        <a href="/pixel-generator/banana_pixel_index.html" target="_blank" class="bg-yellow-400 text-black px-6 py-3 rounded-md font-semibold hover:bg-yellow-500">Create Pixel Art</a>
       </p>
       <p class="mt-4 text-sm text-gray-400 text-center">
         Coming Soon: Use $BANANA tokens to export your creations and become a true Custodian of the Peel.
