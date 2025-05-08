@@ -50,11 +50,21 @@
       0% { opacity: 0; transform: translateY(20px); }
       100% { opacity: 1; transform: translateY(0); }
     }
+    @keyframes carouselSlide {
+      0% { opacity: 0; transform: translateX(20px); }
+      5% { opacity: 1; transform: translateX(0); }
+      13% { opacity: 1; transform: translateX(0); }
+      14% { opacity: 0; transform: translateX(-20px); }
+      100% { opacity: 0; }
+    }
     .animate-glitch { animation: glitch 0.3s ease infinite alternate; }
     .animate-drift { animation: drift 3.5s ease-in-out infinite; }
     .animate-ledgerPulse { animation: ledgerPulse 1s ease-out; }
     .animate-grid { animation: gridFade 5s ease-in-out infinite; }
     .fade-in { animation: fadeIn 0.8s ease-out; }
+    .fade-in-delay-100 { animation: fadeIn 0.8s ease-out 0.1s; }
+    .fade-in-delay-200 { animation: fadeIn 0.8s ease-out 0.2s; }
+    .fade-in-delay-300 { animation: fadeIn 0.8s ease-out 0.3s; }
     /* Peel Fragment */
     .peel-fragment {
       width: 1px;
@@ -136,25 +146,117 @@
     .faq-question:hover { background-color: #3A3A3A; }
     .faq-answer { display: none; padding: 1rem; background-color: #1A1A1A; border: 1px solid #E8B923; border-top: none; border-radius: 0 0 0.5rem 0.5rem; }
     .faq-answer.active { display: block; }
-    /* Audio Player Styles */
-    .audio-player {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 1rem;
+    /* Carousel Styles for NFT Collection */
+    .carousel {
+      position: relative;
+      width: 100%;
+      max-width: 600px;
+      height: 300px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .carousel-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      animation: carouselSlide 28s infinite;
+    }
+    .carousel-slide:nth-child(1) { animation-delay: 0s; }
+    .carousel-slide:nth-child(2) { animation-delay: 4s; }
+    .carousel-slide:nth-child(3) { animation-delay: 8s; }
+    .carousel-slide:nth-child(4) { animation-delay: 12s; }
+    .carousel-slide:nth-child(5) { animation-delay: 16s; }
+    .carousel-slide:nth-child(6) { animation-delay: 20s; }
+    .carousel-slide:nth-child(7) { animation-delay: 24s; }
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: drop-shadow(0 0 5px rgba(232, 185, 35, 0.3));
+    }
+    .carousel-slide.active-glitch { animation: glitch 0.3s ease infinite alternate; }
+    /* Footer Styles */
+    .footer {
+      background: #1A1A1A;
+      border-top: 1px solid #E8B923;
+      padding: 3rem 0;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      min-width: 0;
+    }
+    .footer-about {
+      text-align: center;
+    }
+    .footer-logo {
+      font-size: 1.5rem;
+      color: #E8B923;
+      text-decoration: none;
+      font-weight: bold;
+      text-shadow: 0 0 5px rgba(232, 185, 35, 0.5);
+      display: inline-block;
       margin-bottom: 1rem;
     }
-    .audio-player button {
-      background-color: #E8B923;
-      color: #1A1A1A;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 0.5rem;
-      cursor: pointer;
-      transition: background-color 0.3s;
+    .footer-about p {
+      font-size: 0.875rem;
+      margin-bottom: 1.5rem;
+      text-shadow: none;
     }
-    .audio-player button:hover {
-      background: linear-gradient(to right, #FFD700, #FFA500);
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .social-link img {
+      height: 42px;
+      transition: transform 0.3s;
+      filter: drop-shadow(0 0 3px rgba(232, 185, 35, 0.3));
+    }
+    .social-link img:hover {
+      transform: scale(1.1);
+      filter: drop-shadow(0 0 5px #8BC34A);
+    }
+    .footer-nav {
+      text-align: center;
+    }
+    .footer-heading {
+      font-size: 1.25rem;
+      color: #E8B923;
+      text-shadow: 0 0 5px rgba(232, 185, 35, 0.5);
+      margin-bottom: 1rem;
+    }
+    .footer-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .footer-links li {
+      margin-bottom: 0.75rem;
+    }
+    .footer-links a {
+      color: #D1D5DB;
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: color 0.3s;
+    }
+    .footer-links a:hover {
+      color: #E8B923;
+      text-shadow: 0 0 3px rgba(232, 185, 35, 0.3);
+    }
+    .copyright {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.75rem;
+      color: #D1D5DB;
+      text-shadow: none;
     }
     /* Smooth Scroll */
     html { scroll-behavior: smooth; }
@@ -188,8 +290,7 @@
     #home .space-x-4 { flex-direction: column; space-x-0; space-y-4; }
     #home .space-x-4 a { width: 100%; text-align: center; }
     /* Mobile Footer Adjustments */
-    footer .flex.space-x-6 { flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
-    footer a { font-size: 0.875rem; }
+    .footer-grid { grid-template-columns: 1fr; }
     /* Desktop Adjustments */
     @media (min-width: 768px) {
       .nav-links { display: none; }
@@ -200,8 +301,9 @@
       #home .space-x-4 a { width: auto; }
       .side-glyph-left, .side-glyph-right { display: block; }
       h2 { font-size: 3.5rem; }
-      footer .flex.space-x-6 { flex-wrap: nowrap; gap: 0; }
-      footer a { font-size: 1rem; }
+      .footer-grid { grid-template-columns: repeat(4, 1fr); }
+      .footer-about, .footer-nav { text-align: left; }
+      .social-links { justify-content: flex-start; }
     }
     @media (min-width: 1024px) {
       #home h1 { font-size: 6rem; }
@@ -224,9 +326,10 @@
       <div class="nav-links">
         <a href="#home" class="py-2 hover:text-yellow-500">Home</a>
         <a href="#about" class="py-2 hover:text-yellow-500">About</a>
-        <a href="#pixel-art" class="py-2 hover:text-yellow-500">Pixel Art</a>
         <a href="#tokenomics" class="py-2 hover:text-yellow-500">Tokenomics</a>
         <a href="#how-to-trade" class="py-2 hover:text-yellow-500">How to Trade</a>
+        <a href="#nft-collection" class="py-2 hover:text-yellow-500">NFT Collection</a>
+        <a href="#pixel-art" class="py-2 hover:text-yellow-500">Pixel Art</a>
         <a href="#community" class="py-2 hover:text-yellow-500">Community</a>
         <a href="#faq" class="py-2 hover:text-yellow-500">FAQ</a>
       </div>
@@ -284,27 +387,6 @@
     </div>
   </section>
 
-  <!-- The Peel Engineer Section -->
-  <section id="pixel-art" class="py-20 relative fade-in">
-    <div class="side-glyph-left"></div>
-    <div class="side-glyph-right"></div>
-    <div class="ledger-glyph" style="top: 5%; left: 5%; transform: rotate(30deg);"></div>
-    <div class="ledger-glyph" style="bottom: 5%; right: 5%; transform: rotate(60deg);"></div>
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl md:text-4xl font-bold text-center uppercase">The Peel Engineer</h2>
-      <p class="mt-6 text-lg text-center">
-        The Peel Engineer is a sacred tool uncovered from the XRPL’s depths—a Pixel Art Generator that lets the $BANANA community create new interpretations of the peel. Try it now and join the movement.<br><br>
-        <a href="https://bananaxrpl.github.io/banana_pixel_gen/banana_pixel_index.html" target="_blank" class="bg-yellow-400 text-black px-6 py-3 rounded-md font-semibold hover:bg-yellow-500">Create Pixel Art</a>
-      </p>
-      <p class="mt-4 text-sm text-gray-400 text-center">
-        Coming Soon: Use $BANANA tokens to export your creations and become a true Custodian of the Peel.
-      </p>
-      <div class="mt-8 text-center">
-        <img src="peel-engineer-machine.png" alt="Pixelated Peel Engineer machine" class="mx-auto max-w-full h-auto">
-      </div>
-    </div>
-  </section>
-
   <!-- Tokenomics Section -->
   <section id="tokenomics" class="py-20 relative fade-in">
     <div class="side-glyph-left"></div>
@@ -327,7 +409,10 @@
           <p class="text-lg"><strong>Date Created:</strong> December 18, 2024</p>
         </div>
         <div class="bg-gray-800 p-6 rounded-lg">
-          <p class="text-lg"><strong>More Info:</strong> Token Gitbook Coming Soon</p>
+          <p class="text-lg"><strong>NFT Sales:</strong> The Banana Collective 1/1 Artist Collection proceeds split 50/50 between the $BANANA AMM pool and the artist. Future collections fund the AMM pool directly.</p>
+        </div>
+        <div class="bg-gray-800 p-6 rounded-lg md:col-span-2">
+          <p class="text-lg"><strong>Dev Allocation:</strong> 0% at launch. I buy alongside you, taking the same risks, supporting through buying, LP contributions, and marketing. Let’s build this community together—join the trenches and trade.</p>
         </div>
       </div>
       <div class="mt-10">
@@ -411,6 +496,78 @@
     </div>
   </section>
 
+  <!-- The Banana Collective Section -->
+  <section id="nft-collection" class="py-20 relative fade-in">
+    <div class="side-glyph-left"></div>
+    <div class="side-glyph-right"></div>
+    <div class="ledger-glyph" style="top: 5%; left: 5%; transform: scale(1.1);"></div>
+    <div class="ledger-glyph" style="bottom: 5%; right: 5%; transform: scale(1.1) rotate(30deg);"></div>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-bold text-center uppercase animate-glitch">The Banana Collective</h2>
+      <p class="mt-6 text-lg text-center">
+        Explore The Banana Collective, a 1/1 Artist Collection on the XRP Ledger. Each NFT is a unique piece of pixelated art, pulsing with $BANANA’s absurd genius. Check out the collection on <a href="https://xrp.cafe/collection/the-banana-collective" target="_blank" class="text-yellow-400 hover:text-yellow-500">XRP Cafe</a>.
+      </p>
+      <div class="mt-8 carousel">
+        <div class="carousel-slide active-glitch">
+          <a href="https://xrp.cafe/nft/00082710F2196D4058D07714EA03D919DE5F44AFAD9377581526092E0583B48C" target="_blank">
+            <img src="https://cdn.xrp.cafe/17ffca534bbe-4ea7-805c-da1ec44308fb49429609e3e7-4270-ba55-925daa548afea889088959e4-4532-9bdd-dc4e27c153f0.webp" alt="Banana Collective NFT 1">
+          </a>
+        </div>
+        <div class="carousel-slide active-glitch">
+          <a href="https://xrp.cafe/nft/00082710F2196D4058D07714EA03D919DE5F44AFAD937758A2A8F62B0583B487" target="_blank">
+            <img src="https://cdn.xrp.cafe/66dbc89a78e2-4634-a3d4-b0b6acd56e295294c58893f6-4bed-ba1e-1e457a1a55c06d56fe56b156-45b0-9191-9318e2d30398.webp" alt="Banana Collective NFT 2">
+          </a>
+        </div>
+        <div class="carousel-slide active-glitch">
+          <a href="https://xrp.cafe/nft/00082710F2196D4058D07714EA03D919DE5F44AFAD937758B98EC52A0583B488" target="_blank">
+            <img src="https://cdn.xrp.cafe/1cfdaecc5902-4686-98d9-079bba6f504b2f5b261118f6-4204-9686-fd841f89415360a0c752ab99-45d2-9788-1b7bc5a6834d.webp" alt="Banana Collective NFT 3">
+          </a>
+        </div>
+        <div class="carousel-slide active-glitch">
+          <a href="https://xrp.cafe/nft/00082710F2196D4058D07714EA03D919DE5F44AFAD937758D074942D0583B489" target="_blank">
+            <img src="https://cdn.xrp.cafe/e5627aa9dd14-41f5-97dd-8ad536d8617461a1ca85b514-42c1-b1a5-506dea5ccdde6199fab2abb4-42b5-90d3-f86508f42fad.webp" alt="Banana Collective NFT 4">
+          </a>
+        </div>
+        <div class="carousel-slide active-glitch">
+          <a href="https://xrp.cafe/nft/00082710F2196D4058D07714EA03D919DE5F44AFAD937758E75A6B2C0583B48A" target="_blank">
+            <img src="https://cdn.xrp.cafe/5b329c9267e6-4809-bdb6-0a1a3884ca9ce06b77944382-44a6-9de0-64615fa032afbad2a3f1fe7e-488f-bf09-69d55072bf31.webp" alt="Banana Collective NFT 5">
+          </a>
+        </div>
+        <div class="carousel-slide active-glitch">
+          <a href="https://xrp.cafe/nft/00082710F2196D4058D07714EA03D919DE5F44AFAD937758FE403A2F0583B48B" target="_blank">
+            <img src="https://cdn.xrp.cafe/61d403f773f0-4420-91b5-c83f1653be9256cad50dc086-4269-99e0-6326423117249928b30257f8-4f55-abc0-210c3ff75377.webp" alt="Banana Collective NFT 6">
+          </a>
+        </div>
+        <div class="carousel-slide active-glitch">
+          <a href="https://xrp.cafe/nft/00082710F2196D4058D07714EA03D919DE5F44AFAD9377582C0BD8210583B48D" target="_blank">
+            <img src="https://cdn.xrp.cafe/61d8911583b2-4a60-a99d-86a797ebb244152294ac02ad-497a-a6f2-828ff119a8c127d860f5f6d2-4a9b-8b21-b740631d41af.webp" alt="Banana Collective NFT 7">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Peel Engineer Section -->
+  <section id="pixel-art" class="py-20 relative fade-in">
+    <div class="side-glyph-left"></div>
+    <div class="side-glyph-right"></div>
+    <div class="ledger-glyph" style="top: 5%; left: 5%; transform: rotate(30deg);"></div>
+    <div class="ledger-glyph" style="bottom: 5%; right: 5%; transform: rotate(60deg);"></div>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-bold text-center uppercase">The Peel Engineer</h2>
+      <p class="mt-6 text-lg text-center">
+        The Peel Engineer is a sacred tool uncovered from the XRPL’s depths—a Pixel Art Generator that lets the $BANANA community create new interpretations of the peel. Try it now and join the movement.<br><br>
+        <a href="https://bananaxrpl.github.io/banana_pixel_gen/banana_pixel_index.html" target="_blank" class="bg-yellow-400 text-black px-6 py-3 rounded-md font-semibold hover:bg-yellow-500">Create Pixel Art</a>
+      </p>
+      <p class="mt-4 text-sm text-gray-400 text-center">
+        Coming Soon: Use $BANANA tokens to export your creations and become a true Custodian of the Peel.
+      </p>
+      <div class="mt-8 text-center">
+        <img src="peel-engineer-machine.png" alt="Pixelated Peel Engineer machine" class="mx-auto max-w-full h-auto">
+      </div>
+    </div>
+  </section>
+
   <!-- Community Section -->
   <section id="community" class="py-20 relative fade-in">
     <div class="side-glyph-left"></div>
@@ -422,28 +579,6 @@
       <p class="mt-6 text-lg text-center">
         Dive into the $BANANA community to peel the Ledger together. Connect, share, and uncover the hidden truths of the XRPL with fellow seekers.
       </p>
-      <div class="mt-10 flex justify-center space-x-6">
-        <a href="https://t.me/+Yb1uKB1NxM04ZjJk" target="_blank" class="text-yellow-400 hover:text-yellow-500 social-icon" aria-label="Telegram">
-          <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 6h-3v1h2v1h-1v1h-2v-1h1v-1h-2V8h3v1h2v1zm-3 2h-1v1h1v1h-2v-1h1v-1h-2v-1h2v1h2v1zm-3 0h-1v1h1v1h-2v-1h1v-1h-2v-1h2v1h2v1zm-3 0h-1v1h1v1h-2v-1h1v-1h-2v-1h2v1h2v1zm-1 4h2v-1h1v1h-1v1h2v-1h1v1h-1v1h2v-1h1v1h-1v1h2v-1h1v2H7v-2h1v1h-1v-1h2v1h-1v-1z"/>
-          </svg>
-        </a>
-        <a href="https://x.com/bananaXRPL" target="_blank" class="text-yellow-400 hover:text-yellow-500 social-icon" aria-label="X">
-          <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.08-.07-.14-.06-.21-.02-.09.05-1.48.95-4.22 2.79-.36.24-.69.36-1 .34-.51-.02-1.46-.3-2.17-.57-.86-.33-.87-.5-.6-.71.36-.27 1.02-.49 1.68-.49 1.18 0 3.11.58 4.06 1.22 1.57 1.04 1.95 1.86 2.15 2.39z"/>
-          </svg>
-        </a>
-        <a href="https://www.instagram.com/bananaXRPL" target="_blank" class="text-yellow-400 hover:text-yellow-500 social-icon" aria-label="Instagram">
-          <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.265-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.948-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-          </svg>
-        </a>
-        <a href="https://stocktwits.com/bananaXRPL" target="_blank" class="text-yellow-400 hover:text-yellow-500 social-icon" aria-label="Stocktwits">
-          <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 7h-2v1h1v1h-1v1h-2v-1h1v-1h-2V9h2v1h2v1zm-3 1h-1v1h1v1h-2v-1h1v-1h-2v-1h2v1h2v1zm-3 0h-1v1h1v1h-2v-1h1v-1h-2v-1h2v1h2v1zm-3 0h-1v1h1v1h-2v-1h1v-1h-2v-1h2v1h2v1zm-1 4h2v-1h1v1h-1v1h2v-1h1v1h-1v1h2v-1h1v1h-1v1h2v-1h1v2H7v-2h1v1h-1v-1h2v1h-1v-1z"/>
-          </svg>
-        </a>
-      </div>
     </div>
   </section>
 
@@ -493,25 +628,62 @@
   </section>
 
   <!-- Footer -->
-  <footer class="py-10 bg-gray-900 border-t border-yellow-400">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="audio-player">
-        <button id="play-btn" aria-label="Play Song">Play</button>
-        <button id="pause-btn" aria-label="Pause Song">Pause</button>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about fade-in">
+          <a href="#home" class="footer-logo">$BANANA</a>
+          <p>$BANANA is a decentralized fragment of ledger-born lore, split across the XRPL. A digital relic. A cipher for those who see patterns in chaos. Peel the Ledger. Find the Truth.</p>
+          <div class="social-links">
+            <a href="https://t.me/+Yb1uKB1NxM04ZjJk" class="social-link">
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAAN5JREFUWEft1zEOgjAUBuAyWv//s9SFuAu0hLtkS+qgVcYta7YlKX3u5wEFACfAg5A35wIwb7gAO6L8ACAFuBKqQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJ4B6f0A9dIu7s2z9N7AAAAAElFTkSuQmCC" alt="Telegram" height="42">
+            </a>
+            <a href="https://x.com/bananaXRPL" class="social-link">
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAAN5JREFUWEft1zEOgjAUBuAyWv//s9SFuAu0hLtkS+qgVcYta7YlKX3u5wEFACfAg5A35wIwb7gAO6L8ACAFuBKqQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJ4B6f0A9dIu7s2z9N7AAAAAElFTkSuQmCC" alt="X" height="42">
+            </a>
+            <a href="https://www.instagram.com/bananaXRPL" class="social-link">
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAAN5JREFUWEft1zEOgjAUBuAyWv//s9SFuAu0hLtkS+qgVcYta7YlKX3u5wEFACfAg5A35wIwb7gAO6L8ACAFuBKqQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJ4B6f0A9dIu7s2z9N7AAAAAElFTkSuQmCC" alt="Instagram" height="42">
+            </a>
+            <a href="https://stocktwits.com/bananaXRPL" class="social-link">
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAAN5JREFUWEft1zEOgjAUBuAyWv//s9SFuAu0hLtkS+qgVcYta7YlKX3u5wEFACfAg5A35wIwb7gAO6L8ACAFuBKqQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJwBrgS2kECcAa4EtpBAnAGuBLaQQJ4B6f0A9dIu7s2z9N7AAAAAElFTkSuQmCC" alt="Stocktwits" height="42">
+            </a>
+          </div>
+        </div>
+        <div class="footer-nav fade-in-delay-100">
+          <h3 class="footer-heading">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#tokenomics">Tokenomics</a></li>
+            <li><a href="#how-to-trade">How to Trade</a></li>
+            <li><a href="#nft-collection">NFT Collection</a></li>
+            <li><a href="#pixel-art">Pixel Art</a></li>
+            <li><a href="#community">Community</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav fade-in-delay-200">
+          <h3 class="footer-heading">DEX Links</h3>
+          <ul class="footer-links">
+            <li><a href="https://dexscreener.com/xrpl/42414e414e410000000000000000000000000000.rpopnahpwzxiwapipm5ehq6kslehvgilqp_xrp">DexScreener</a></li>
+            <li><a href="https://firstledger.net/?ref=5h13565xnqx4">First Ledger</a></li>
+            <li><a href="https://xmagnetic.org/tokens/BANANA+rPopnAhPWZXiWApiPM5EHQ6ksLEhvGiLqP?network=mainnet">xMagnetic</a></li>
+            <li><a href="https://xpmarket.com/token/BANANA-rPopnAhPWZXiWApiPM5EHQ6ksLEhvGiLqP">XPMarket</a></li>
+            <li><a href="https://swap.xgclabs.io/XRP/BANANA">XGC Labs</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav fade-in-delay-300">
+          <h3 class="footer-heading">Social Links</h3>
+          <ul class="footer-links">
+            <li><a href="https://t.me/+Yb1uKB1NxM04ZjJk">Telegram</a></li>
+            <li><a href="https://x.com/bananaXRPL">X</a></li>
+            <li><a href="https://www.instagram.com/bananaXRPL">Instagram</a></li>
+            <li><a href="https://stocktwits.com/bananaXRPL">Stocktwits</a></li>
+          </ul>
+        </div>
       </div>
-      <audio id="banana-song" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
-      <p class="text-center text-sm text-gray-400 mb-4">[Placeholder: AI-generated $BANANA song]</p>
-      <div class="flex flex-col md:flex-row justify-between items-center">
-        <div class="text-center md:text-left">
-          <span class="text-xl font-bold text-yellow-400">$BANANA</span>
-          <p class="mt-2 text-gray-400">© 2025 $BANANA. Split Happens. Stay Ripe.</p>
-        </div>
-        <div class="mt-6 md:mt-0 flex space-x-6">
-          <a href="https://t.me/+Yb1uKB1NxM04ZjJk" target="_blank" class="text-yellow-400 hover:text-yellow-500">Telegram</a>
-          <a href="https://x.com/bananaXRPL" target="_blank" class="text-yellow-400 hover:text-yellow-500">X</a>
-          <a href="https://www.instagram.com/bananaXRPL" target="_blank" class="text-yellow-400 hover:text-yellow-500">Instagram</a>
-          <a href="https://stocktwits.com/bananaXRPL" target="_blank" class="text-yellow-400 hover:text-yellow-500">Stocktwits</a>
-        </div>
+      <div class="copyright">
+        © 2025 $BANANA. Split Happens. Stay Ripe.
       </div>
     </div>
   </footer>
@@ -560,19 +732,6 @@
       const banana = document.getElementById('pixel-banana');
       const scrollPosition = window.scrollY;
       banana.style.transform = `translateY(${scrollPosition * 0.3}px) scale(2)`;
-    });
-
-    // Audio Player Controls
-    const audio = document.getElementById('banana-song');
-    const playBtn = document.getElementById('play-btn');
-    const pauseBtn = document.getElementById('pause-btn');
-
-    playBtn.addEventListener('click', () => {
-      audio.play();
-    });
-
-    pauseBtn.addEventListener('click', () => {
-      audio.pause();
     });
   </script>
 </body>
