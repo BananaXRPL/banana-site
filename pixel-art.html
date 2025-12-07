@@ -10,7 +10,7 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>$BANANA Business Pixel Generator</title>
+    <title>$BANANA Pixel Art Studio Pro</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gif.js/0.2.0/gif.min.js"></script>
@@ -27,52 +27,8 @@
         }
         a { color: #007acc; text-decoration: none; }
         a:hover { text-decoration: underline; }
-        #landingPage {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #000;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            z-index: 10;
-            padding: 20px;
-            font-family: 'Press Start 2P', cursive;
-        }
-        #landingPage h1 { font-size: 3.5rem; color: #FFEB3B; margin-bottom: 20px; }
-        #landingPage h2 { font-size: 1.8rem; color: #fff; margin-bottom: 40px; }
-        #launchAppBtn {
-            padding: 12px 20px;
-            font-size: 1.1rem;
-            border: none;
-            border-radius: 4px;
-            background: #FFEB3B;
-            color: #222;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-        #launchAppBtn:hover { background: #F9A825; }
-        #landingPage .sponsor { margin-top: 40px; font-size: 0.8rem; color: #ccc; }
-        .landing-footer {
-            position: absolute;
-            bottom: 20px;
-            width: 100%;
-            text-align: center;
-        }
-        .social-links-landing {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-        .social-links-landing a { color: #FFEB3B; font-size: 1.2rem; text-decoration: none; }
-        .social-links-landing a:hover { text-decoration: underline; }
-        .social-links-landing span { color: #FFEB3B; font-size: 1.2rem; }
         #editorContainer {
-            display: none;
+            display: block;
             height: 100vh;
             width: 100vw;
             background: #FFFDE7;
@@ -238,8 +194,9 @@
             position: absolute;
             background: #FFEB3B;
             min-width: 120px;
-            z-index: 3000;
+            z-index: 9999;
             top: 100%;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
         }
         .dropdown:hover .dropdown-content { display: block; }
         .dropdown-content button, .dropdown-content input {
@@ -366,12 +323,16 @@
             right: 15px;
             display: flex;
             gap: 8px;
-            z-index: 1500;
+            z-index: 10001;
+        }
+        .reference-controls .dropdown {
+            position: static; /* Allow content to escape */
         }
         .reference-controls .dropdown-content {
-            top: auto;
-            bottom: 100%;
-            z-index: 3000;
+            position: fixed !important; /* Fixed to viewport */
+            top: 95px !important; /* Below header */
+            right: 30px !important;
+            z-index: 10002 !important;
         }
         .zoom-controls {
             position: absolute;
@@ -389,11 +350,13 @@
             transform: translate(-50%, -50%);
             background: #FFEB3B;
             padding: 20px;
-            border: 1px solid #ccc;
-            z-index: 2000;
+            border: 2px solid #F9A825;
+            border-radius: 8px;
+            z-index: 10000;
             text-align: center;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
             color: #222;
+            min-width: 300px;
         }
         #watermarkPopup button, #supportPopup button {
             padding: 6px 12px;
@@ -532,21 +495,6 @@
     </style>
 </head>
 <body>
-    <div id="landingPage">
-        <h1 style="color:#FFEB3B;">$BANANA Business</h1>
-        <h2 style="color: #fff;">8-Bit Pixel Generator</h2>
-        <button id="launchAppBtn">Launch App</button>
-        <div class="sponsor">Built by $BANANA</div>
-        <footer class="landing-footer">
-            <div class="social-links-landing">
-                <a href="https://firstledger.net/token/rPopnAhPWZXiWApiPM5EHQ6ksLEhvGiLqP/42414E414E410000000000000000000000000000" target="_blank" aria-label="First Ledger">First Ledger</a>
-                <span>|</span>
-                <a href="https://x.com/bananaXRPL" target="_blank" aria-label="X">X</a>
-                <span>|</span>
-                <a href="https://t.me/+Yb1uKB1NxM04ZjJk" target="_blank" aria-label="Telegram">Telegram</a>
-            </div>
-        </footer>
-    </div>
     <div id="editorContainer">
         <div id="container">
             <div id="sidebar">
@@ -557,7 +505,7 @@
                 <button id="mergeLayerBtn" class="toolbar-btn-small" aria-label="Merge Layers">Merge</button>
             </div>
             <div id="header">
-                <div id="headerTitle">$BANANA Business 8-Bit Pixel Generator</div>
+                <div id="headerTitle">$BANANA Pixel Art Studio Pro</div>
                 <div id="headerTools">
                     <div class="tool-group">
                         <button id="undoBtn" class="toolbar-btn" title="Undo (Ctrl+Z)" aria-label="Undo">↺</button>
@@ -689,19 +637,7 @@
     </div>
     <script>
         window.onload = function() {
-            console.log('Page loaded, setting up event listeners...');
-          
-            const launchBtn = document.getElementById('launchAppBtn');
-            if (launchBtn) {
-                launchBtn.addEventListener('click', () => {
-                    console.log('Launch App clicked!');
-                    document.getElementById('landingPage').style.display = 'none';
-                    document.getElementById('editorContainer').style.display = 'block';
-                    resizeCanvas();
-                });
-            } else {
-                console.error('Launch button not found!');
-            }
+            console.log('Pixel Art Studio Pro loaded');
             let gridWidth = 32, gridHeight = 32;
             let defaultZoom = window.innerWidth < 480 ? 15 : 25;
             let zoom = defaultZoom;
@@ -905,11 +841,27 @@
                 });
             }
             function addWatermark(ctx, width, height) {
-                ctx.font = "16px 'Press Start 2P'";
-                ctx.fillStyle = "rgba(255, 235, 59, 0.5)";
-                ctx.textAlign = "center";
+                // Fixed size watermark that doesn't scale with canvas
+                const fontSize = 14; // Always 14px
+                const padding = 12;
+                
+                ctx.save();
+                ctx.font = `${fontSize}px 'Press Start 2P'`;
+                ctx.fillStyle = "rgba(255, 214, 10, 0.9)";
+                ctx.strokeStyle = "rgba(0, 0, 0, 0.6)";
+                ctx.lineWidth = 3;
+                ctx.textAlign = "right";
                 ctx.textBaseline = "bottom";
-                ctx.fillText("$BANANA Business", width / 2, height - 10);
+                
+                // Always position from bottom-right corner
+                const x = width - padding;
+                const y = height - padding;
+                
+                // Stroke first for outline effect
+                ctx.strokeText("🍌 $BANANA", x, y);
+                ctx.fillText("🍌 $BANANA", x, y);
+                
+                ctx.restore();
             }
             function drawColorPicker(hue) {
                 const gradient = colorCtx.createLinearGradient(0, 0, colorCanvas.width, 0);
@@ -926,20 +878,30 @@
             function drawColorPickerGrid() {
                 gridCtx.clearRect(0, 0, gridCanvas.width, gridCanvas.height);
                 if (!gridEnabled) return;
+                
+                // Draw white grid lines with shadow for better visibility
+                gridCtx.lineWidth = 1;
+                gridCtx.globalAlpha = 0.6;
                 gridCtx.strokeStyle = "white";
-                gridCtx.globalAlpha = 0.3;
+                gridCtx.shadowColor = "black";
+                gridCtx.shadowBlur = 2;
+                
                 for (let x = 0; x < gridCanvas.width; x += 10) {
                     gridCtx.beginPath();
-                    gridCtx.moveTo(x, 0);
-                    gridCtx.lineTo(x, gridCanvas.height);
+                    gridCtx.moveTo(x + 0.5, 0);
+                    gridCtx.lineTo(x + 0.5, gridCanvas.height);
                     gridCtx.stroke();
                 }
                 for (let y = 0; y < gridCanvas.height; y += 10) {
                     gridCtx.beginPath();
-                    gridCtx.moveTo(0, y);
-                    gridCtx.lineTo(gridCanvas.width, y);
+                    gridCtx.moveTo(0, y + 0.5);
+                    gridCtx.lineTo(gridCanvas.width, y + 0.5);
                     gridCtx.stroke();
                 }
+                
+                // Reset shadow
+                gridCtx.shadowBlur = 0;
+                gridCtx.globalAlpha = 1.0;
             }
             function getColorAtPosition(x, y) {
                 const imageData = colorCtx.getImageData(x, y, 1, 1).data;
@@ -1129,7 +1091,7 @@
                 }
             });
             document.getElementById('exportGifBtn').addEventListener('click', () => {
-                const useTransparent = confirm("Export with transparent background?");
+                const useTransparent = confirm("Export GIF with transparent background? (Click OK for transparent, Cancel for solid background)");
                 const watermarkPopup = document.getElementById('watermarkPopup');
                 const supportPopup = document.getElementById('supportPopup');
                 watermarkPopup.style.display = 'block';
@@ -1149,17 +1111,20 @@
                 };
                 watermarkPromise.then(useWatermark => {
                     try {
+                        const exportScale = 4;
                         const gif = new GIF({
                             workers: 2,
                             quality: 10,
+                            transparent: useTransparent ? 0x00FF00 : null,
                             workerScript: 'https://cdnjs.cloudflare.com/ajax/libs/gif.js/0.2.0/gif.worker.js'
                         });
                         project.frames.forEach((frame, index) => {
                             const tempCanvas = document.createElement('canvas');
-                            tempCanvas.width = gridWidth * zoom;
-                            tempCanvas.height = gridHeight * zoom;
-                            const tempCtx = tempCanvas.getContext('2d', { willReadFrequently: true });
+                            tempCanvas.width = gridWidth * exportScale;
+                            tempCanvas.height = gridHeight * exportScale;
+                            const tempCtx = tempCanvas.getContext('2d', { willReadFrequently: true, alpha: true });
                             tempCtx.imageSmoothingEnabled = false;
+                            
                             if (!useTransparent) {
                                 tempCtx.fillStyle = document.getElementById('bgColorPicker').value;
                                 tempCtx.fillRect(0, 0, tempCanvas.width, tempCanvas.height);
@@ -1170,7 +1135,7 @@
                                         for (let x = 0; x < gridWidth; x++) {
                                             if (layer.data[y][x]) {
                                                 tempCtx.fillStyle = layer.data[y][x];
-                                                tempCtx.fillRect(x * zoom, y * zoom, zoom, zoom);
+                                                tempCtx.fillRect(x * exportScale, y * exportScale, exportScale, exportScale);
                                             }
                                         }
                                     }
@@ -1183,7 +1148,7 @@
                         gif.on('finished', blob => {
                             const link = document.createElement('a');
                             link.href = URL.createObjectURL(blob);
-                            link.download = 'animation.gif';
+                            link.download = 'banana-animation.gif';
                             link.click();
                             console.log('GIF export completed');
                         });
@@ -1269,21 +1234,56 @@
                 symmetryMode = !symmetryMode;
                 symmetryBtn.classList.toggle('active', symmetryMode);
             });
-            colorCanvas.addEventListener("click", (e) => {
+            // Enhanced color picker with drag functionality
+            let isColorPickerDragging = false;
+            
+            colorCanvas.addEventListener("mousedown", (e) => {
                 e.preventDefault();
                 e.stopPropagation();
+                isColorPickerDragging = true;
                 const rect = colorCanvas.getBoundingClientRect();
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
                 const color = getColorAtPosition(x, y);
                 updateIndicator(x, y, color);
             });
+            
+            colorCanvas.addEventListener("mousemove", (e) => {
+                if (isColorPickerDragging) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const rect = colorCanvas.getBoundingClientRect();
+                    const x = Math.max(0, Math.min(e.clientX - rect.left, rect.width));
+                    const y = Math.max(0, Math.min(e.clientY - rect.top, rect.height));
+                    const color = getColorAtPosition(x, y);
+                    updateIndicator(x, y, color);
+                }
+            });
+            
+            colorCanvas.addEventListener("mouseup", () => {
+                isColorPickerDragging = false;
+            });
+            
+            colorCanvas.addEventListener("mouseleave", () => {
+                isColorPickerDragging = false;
+            });
+            
             colorCanvas.addEventListener("touchstart", (e) => {
                 e.preventDefault();
                 e.stopPropagation();
                 const rect = colorCanvas.getBoundingClientRect();
                 const x = e.touches[0].clientX - rect.left;
                 const y = e.touches[0].clientY - rect.top;
+                const color = getColorAtPosition(x, y);
+                updateIndicator(x, y, color);
+            }, { passive: false });
+            
+            colorCanvas.addEventListener("touchmove", (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const rect = colorCanvas.getBoundingClientRect();
+                const x = Math.max(0, Math.min(e.touches[0].clientX - rect.left, rect.width));
+                const y = Math.max(0, Math.min(e.touches[0].clientY - rect.top, rect.height));
                 const color = getColorAtPosition(x, y);
                 updateIndicator(x, y, color);
             }, { passive: false });
@@ -1761,7 +1761,8 @@
                 }
             });
             document.getElementById('exportBtn').addEventListener('click', () => {
-                const useTransparent = confirm("Export with transparent background?");
+                // Default to transparent background
+                const useTransparent = confirm("Export with transparent background? (Click OK for transparent, Cancel for solid background)");
                 const watermarkPopup = document.getElementById('watermarkPopup');
                 const supportPopup = document.getElementById('supportPopup');
                 watermarkPopup.style.display = 'block';
@@ -1780,10 +1781,16 @@
                     supportPopup.style.display = 'none';
                 };
                 watermarkPromise.then(useWatermark => {
+                    // Export at 4x scale for better quality
+                    const exportScale = 4;
                     const tempCanvas = document.createElement('canvas');
-                    tempCanvas.width = gridWidth * zoom;
-                    tempCanvas.height = gridHeight * zoom;
-                    const tempCtx = tempCanvas.getContext('2d');
+                    tempCanvas.width = gridWidth * exportScale;
+                    tempCanvas.height = gridHeight * exportScale;
+                    const tempCtx = tempCanvas.getContext('2d', { alpha: true });
+                    
+                    // Disable image smoothing for pixel-perfect export
+                    tempCtx.imageSmoothingEnabled = false;
+                    
                     if (!useTransparent) {
                         tempCtx.fillStyle = document.getElementById('bgColorPicker').value;
                         tempCtx.fillRect(0, 0, tempCanvas.width, tempCanvas.height);
@@ -1795,7 +1802,7 @@
                                 for (let x = 0; x < gridWidth; x++) {
                                     if (layer.data[y][x]) {
                                         tempCtx.fillStyle = layer.data[y][x];
-                                        tempCtx.fillRect(x * zoom, y * zoom, zoom, zoom);
+                                        tempCtx.fillRect(x * exportScale, y * exportScale, exportScale, exportScale);
                                     }
                                 }
                             }
@@ -1803,13 +1810,13 @@
                     });
                     if (useWatermark) addWatermark(tempCtx, tempCanvas.width, tempCanvas.height);
                     const link = document.createElement('a');
-                    link.download = 'pixel-art.png';
-                    link.href = tempCanvas.toDataURL();
+                    link.download = 'banana-pixel-art.png';
+                    link.href = tempCanvas.toDataURL('image/png');
                     link.click();
                 });
             });
             function exportLayers() {
-                const useTransparent = confirm("Export with transparent background?");
+                const useTransparent = confirm("Export layers with transparent background? (Click OK for transparent, Cancel for solid background)");
                 const watermarkPopup = document.getElementById('watermarkPopup');
                 const supportPopup = document.getElementById('supportPopup');
                 watermarkPopup.style.display = 'block';
@@ -1828,12 +1835,15 @@
                     supportPopup.style.display = 'none';
                 };
                 watermarkPromise.then(useWatermark => {
+                    const exportScale = 4;
                     const frame = project.frames[project.activeFrame];
                     frame.layers.forEach((layer, index) => {
                         const tempCanvas = document.createElement('canvas');
-                        tempCanvas.width = gridWidth * zoom;
-                        tempCanvas.height = gridHeight * zoom;
-                        const tempCtx = tempCanvas.getContext('2d');
+                        tempCanvas.width = gridWidth * exportScale;
+                        tempCanvas.height = gridHeight * exportScale;
+                        const tempCtx = tempCanvas.getContext('2d', { alpha: true });
+                        tempCtx.imageSmoothingEnabled = false;
+                        
                         if (!useTransparent) {
                             tempCtx.fillStyle = document.getElementById('bgColorPicker').value;
                             tempCtx.fillRect(0, 0, tempCanvas.width, tempCanvas.height);
@@ -1843,13 +1853,13 @@
                                 const color = layer.data[y][x];
                                 if (color) {
                                     tempCtx.fillStyle = color;
-                                    tempCtx.fillRect(x * zoom, y * zoom, zoom, zoom);
+                                    tempCtx.fillRect(x * exportScale, y * exportScale, exportScale, exportScale);
                                 }
                             }
                         }
                         if (useWatermark) addWatermark(tempCtx, tempCanvas.width, tempCanvas.height);
                         const link = document.createElement('a');
-                        link.download = `layer_${index + 1}_${layer.name}.png`;
+                        link.download = `banana-layer-${index + 1}-${layer.name}.png`;
                         link.href = tempCanvas.toDataURL('image/png');
                         link.click();
                     });
